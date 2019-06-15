@@ -1,0 +1,20 @@
+Dimension: 10
+0 1150 1760
+5 1030 2070
+8 790 2260
+4 750 2030
+2 40 2090
+1 630 1660
+9 710 1310
+3 750 1100
+6 1650 650
+7 1490 1630
+
+
+
+
+Mejor coste obtenido: 5250.58
+Numero de nodos expandidos: 2396
+Tamaño maximo de la cola: 41
+Numero de podas: 446
+Tiempo: 0.0163229

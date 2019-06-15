@@ -1,0 +1,81 @@
+
+
+
+		def Backtracking {
+			solucionParcial[];
+			mejorSolucion[];
+			meta = sumaTotalPuntacionesJugadores / 2;
+			mejorPuntuacion = meta * 2;
+
+			puntuacion = puntuacionPrimerJugador();
+			solucionParcial.añadir(primerJugador);
+
+			while(solucionParcial no vacia){
+				if(puntuacion == meta){
+					return mejorSolucion;
+				}
+				else if(puntuacion se acerca mas a la meta que mejorPuntuacion){
+					mejorSolucion = solucionParcial; mejorPuntuacion = puntuacion;
+				}
+
+				if(ultimoJugadorSolParcial != ultimoJugador()){
+					solucionParcial.añadirSiguienteJugador();
+				}
+				else{
+					ultimo = ultimoJugador();
+					while(ultimo == ultimoJugador && solucionParcial tiene al menos dos elementos){
+						solucionParcial.sacarUltimoJugador(); //Elimina al ultimo y resta su puntuacion a "puntuacion"
+						ultimo = ultimoJugador();
+					}
+					solucionParcial.sacarUltimoJugador();
+					if(solucionParcial vacia) acaba la iteracion;
+					solucionParcial.añadirSiguienteJugador();
+				}
+				puntuacion += solucionParcial.puntuacionUltimoJugador();
+			}
+
+			return mejorSolucion;
+		}
+
+
+
+		def BranchBound {
+			solucionParcial[], mejorSoucion[];
+			pila<int> auxiliar;
+			meta = sumaTotalPuntacionesJugadores / 2;
+
+			for(todos los jugadores){
+				auxiliar.push(jugador_actual.ID);
+				solucionParci.push_back(jugador_actual);
+				while(!auxiliar.empty()){
+					if(puntuacion == meta){
+						return mejorSolucion;
+					}
+					else if (puntuacion se acerca mas a la meta que mejorPuntuacion) {
+						mejorSolucion = solucionParcial; mejorPuntuacion = puntuacion;
+					}
+
+					if(ultimoJugadorSolParcial != ultimoJugador && putuacion < meta){
+						solucionParcial.aniadir(jugadorSiguienteAlUltimoSolParcial)
+						auxiliar.push(jugadorSiguienteAlUltimoSolParcial.ID)
+						puntuacion += jugadorSiguienteAlUltimoSolParcial.competicion
+					}
+					else {
+						ciclo:
+							ultID = auxiliar.top();
+							puntuacion -= solucionParcial.back().competicion;
+							solucionParcial.pop_back(); auxiliar.pop();
+							if (ultID == ultimoJugador && !auxiliar.empty()) goto ciclo;
+						if(auxiliar.empty()) break;
+						solucionParcial.push_bak(jugadores[ultID + 1]);
+						auxiliar.push(aniadir.ID);
+						puntuacion += jugadores[ultID + 1].competicion;
+					}
+				}
+			}
+
+			return mejorSolucion;
+		}
+
+
+

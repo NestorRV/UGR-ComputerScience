@@ -1,0 +1,43 @@
+
+
+*******************************************************************************
+Wed Mar  9 15:43:01 2016
+
+
+FIT:    data read from 'floyd_O2.dat'
+        format = z
+        #datapoints = 26
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 3.39383e-09       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 19744.3
+
+initial set of free parameter values
+
+a0              = 2.26889e-09
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 3.2063e-09
+rel. change during last iteration : -1.18591e-11
+
+degrees of freedom    (FIT_NDF)                        : 25
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.13248e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.28252e-10
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a0              = 2.40491e-09      +/- 1.125e-10    (4.677%)
+
+
+correlation matrix of the fit parameters:
+
+               a0     
+a0              1.000 

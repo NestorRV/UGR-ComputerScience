@@ -1,0 +1,4 @@
+Solución Parcial: mejorNodo (en concreto, el vector ruta que lleva dentro).
+Función de Poda: El coste del nodo actual mas el coste restante es mayor que el coste de la solucion parcial.
+Restricciones Explícitas: Que las cordenadas de cada ciudad sean válidas.
+Restricciones Implícitas: No se pueden repetir ciudades y se deben añadir todas.

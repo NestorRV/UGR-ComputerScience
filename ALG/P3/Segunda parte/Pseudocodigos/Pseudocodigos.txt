@@ -1,0 +1,43 @@
+def VecinoMasCercano {
+	solucion = []
+	solucion.push(ciudades[0])
+	candidatos = ciudades
+	candidatos.erase(ciudades[0])
+	while solucion.size < ciudades.size {
+		elegida = candidatos.vecinoMasCercano(solucion[ultima_ciudad])
+		solucion.push(elegida)
+		candidatos.erase(elegida)
+	}
+	return solucion
+}
+
+
+def MejorInsercion {
+	solucion = []
+	solucion.push(ciudades[inicial])
+	candidatos = ciudades
+	candidatos.erase(ciudades[inicial])
+	while solucion.size < ciudades.size {
+		par(elegida, posicion) = candidatos.mejorInsercion(solucion)
+		solucion.inser(elegida, posicion)
+		candidatos.erase(elegida)
+	}
+	return solucion
+}
+
+
+def MejorArista {
+	solucion = []
+	aux = []
+	aux.push(aristas[0])
+	distancia +=  aristas.peso
+	while hayAristas {
+		if(ciudad.CiudadFactible && !ciudad.ExistenCiclos){
+			aux.push(ciudad)
+			distancia +=  aristas.peso
+		}
+	}
+	CerrarCiclo(aux, aristas, distancia)
+	salida = aux.pasarACamino
+	return salida
+}

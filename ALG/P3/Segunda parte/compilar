@@ -1,0 +1,5 @@
+#!/bin/bash
+
+g++ tsp1.cpp -o tsp1 -O2
+g++ tsp2.cpp -o tsp2 -O2
+g++ tsp3.cpp -o tsp3 -O2

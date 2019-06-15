@@ -1,0 +1,40 @@
+		
+
+		def TSP {
+			nodosVivos; mejorNodo; min_distancias[];
+			mejorNodo.ruta.añadirTodasCiudades;
+			min_distancias = MinimosNodos();
+			mejorNodo.mejores_aristas = sumar(min_distancias);
+			nodosVivos.push_back(primerNodo);
+			while(nodosVivos no esta vacio){
+				actual = nodosVivos.top();	//LC: Priority Queue ordenada por un functor
+				if(actual es el ultimo){
+					coste = actual.coste + coste de cerrar el ciclo;
+					if(coste < mejorNodo.coste){
+						mejorNodo.ruta = actual.ruta; mejorNodo.coste = coste;
+					}
+				}
+				else if(actual.costeTotal < mejorNodo.coste){
+					para cada nodo [i] restante (desde actual hasta el final){
+						para cada ciudad [j] en nodo.ruta{
+							cruce = comprobarCruce(actual, ciudad)
+						}
+
+						if(!cruce){
+							hijo = actual;
+							swap(ciudad[i] de hijo, indice de mejor hijo);	// Selecciona el mejor hijo
+
+							hijo.coste += coste de añadir el hijo;
+							hijo.mejores_aristas -= min_distancias[hijo.indice - 1];  // Resta distancia minima porque es optima
+							hijo.indice++;
+
+							nodosVivos.push(hijo);
+						}
+					}
+				}
+				else{
+					PODA (no toma ese camino)
+				}
+			}
+			return mejorNodo;
+		}

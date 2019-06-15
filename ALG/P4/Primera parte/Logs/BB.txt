@@ -1,0 +1,43 @@
+
+
+*******************************************************************************
+Wed May 18 13:22:32 2016
+
+
+FIT:    data read from 'equiposBB.dat'
+        format = z
+        #datapoints = 60
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 4.34864e-08       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 1643.53
+
+initial set of free parameter values
+
+a               = 4.41306e-16
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 2.03283e-08
+rel. change during last iteration : -8.50152e-12
+
+degrees of freedom    (FIT_NDF)                        : 59
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.8562e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.44547e-10
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a               = 1.19536e-08      +/- 1.458e-09    (12.2%)
+
+
+correlation matrix of the fit parameters:
+
+               a      
+a               1.000 

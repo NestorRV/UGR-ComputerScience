@@ -1,0 +1,9 @@
+#!/bin/bash
+g++ burbuja.cpp -o burbuja_O2 -O2 -std=gnu++0x
+g++ floyd.cpp -o floyd_O2 -O2 -std=gnu++0x
+g++ hanoi.cpp -o hanoi_O2 -O2 -std=gnu++0x
+g++ heapsort.cpp -o heapsort_O2 -O2 -std=gnu++0x
+g++ insercion.cpp -o insercion_O2 -O2 -std=gnu++0x
+g++ mergesort.cpp -o mergesort_O2 -O2 -std=gnu++0x
+g++ quicksort.cpp -o quicksort_O2 -O2 -std=gnu++0x
+g++ seleccion.cpp -o seleccion_O2 -O2 -std=gnu++0x

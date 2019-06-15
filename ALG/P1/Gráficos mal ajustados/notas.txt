@@ -1,0 +1,4 @@
+para los algoritmos de n² --> n
+para los algoritmos de nlogn --> n²
+para floyd --> n
+para hanoi --> n

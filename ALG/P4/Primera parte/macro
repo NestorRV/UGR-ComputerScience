@@ -1,0 +1,7 @@
+#!/bin/csh -vx
+echo "" > equiposBB.dat
+@ i = 0
+while ( $i < 70 )
+./equipos $i >> equiposBB.dat
+@ i += 1
+end

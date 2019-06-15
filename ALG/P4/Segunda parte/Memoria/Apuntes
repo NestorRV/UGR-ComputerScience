@@ -1,0 +1,11 @@
+En cada nodo hay que tener
+- la solucion parcial
+- nivel en el que esta el nodo
+- cota
+
+Podemos añadir otra informacion
+- las ciudades que faltan por visitar (para calcular la cota)
+
+
+En la matriz hay que calcular el minimo de cada fila
+Se espanden los nodos que tengan menor cota local (LC - Less Cost)

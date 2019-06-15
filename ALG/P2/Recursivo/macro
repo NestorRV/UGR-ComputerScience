@@ -1,0 +1,7 @@
+#!/bin/csh -vx
+echo "" > ERR.dat
+@ i = 1000
+while ( $i < 4000001 )
+./ERR $i >> ERR.dat
+@ i += 50000
+end

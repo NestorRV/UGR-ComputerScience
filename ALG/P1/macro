@@ -1,0 +1,7 @@
+#!/bin/csh -vx
+echo "" >> burbuja.dat
+@ i = 10
+while ( $i < 36 )
+./burbuja $i >> burbuja.dat
+@ i += 1
+end

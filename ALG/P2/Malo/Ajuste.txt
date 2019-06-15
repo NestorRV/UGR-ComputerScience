@@ -1,0 +1,43 @@
+
+
+*******************************************************************************
+Thu Mar 31 21:29:53 2016
+
+
+FIT:    data read from 'EliminaRepetidosMalo.dat'
+        format = z
+        #datapoints = 50
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1.37709e+30       delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 1.65957e+14
+
+initial set of free parameter values
+
+a0              = 1
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 0.994532
+rel. change during last iteration : -3.4057e-08
+
+degrees of freedom    (FIT_NDF)                        : 49
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.142466
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0202966
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+a0              = 3.29807e-15      +/- 1.214e-16    (3.681%)
+
+
+correlation matrix of the fit parameters:
+
+               a0     
+a0              1.000 

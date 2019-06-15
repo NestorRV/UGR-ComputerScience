@@ -1,0 +1,20 @@
+Dimension: 10
+0 6734 1453
+7 7265 1268
+8 6898 1885
+6 7573 3716
+5 7608 4458
+4 3082 1644
+9 1112 2049
+3 401 841
+1 2233 10
+2 5530 1424
+
+
+
+
+Mejor coste obtenido: 19520.3
+Numero de nodos expandidos: 2677
+Tamaño maximo de la cola: 18
+Numero de podas: 170
+Tiempo: 0.0256737
