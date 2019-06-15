@@ -14,6 +14,8 @@ Este repositorio contiene las prácticas de diferentes asignaturas del Grado en 
 
 * IA: Prácticas de la asignatura Inteligencia Artificial.
 
+* IC: Prácticas de la asignatura Inteligencia del Conocimiento.
+
 * IG: Prácticas de la asignatura Informática Gráfica.
 
 * ISE: Prácticas de la asignatura Ingeniería de Servidores.
