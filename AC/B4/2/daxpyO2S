@@ -1,0 +1,161 @@
+	.file	"daxpy.c"
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC0:
+	.string	"Faltan no componentes del vector"
+	.align 8
+.LC2:
+	.string	"Tiempo(seg.):%11.9f\t / Tama\303\261o Vectores:%u\n"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC3:
+	.string	"A[0] = %d // A[N-1] = %d.\n"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB4:
+	.section	.text.startup,"ax",@progbits
+.LHOTB4:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB38:
+	.cfi_startproc
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	subq	$48, %rsp
+	.cfi_def_cfa_offset 96
+	movq	%fs:40, %rax
+	movq	%rax, 40(%rsp)
+	xorl	%eax, %eax
+	cmpl	$1, %edi
+	jle	.L17
+	movq	8(%rsi), %rdi
+	movl	$10, %edx
+	xorl	%esi, %esi
+	call	strtol
+	movl	%eax, %r12d
+	movq	%rax, %rbp
+	movl	%eax, %r13d
+	salq	$2, %r12
+	movq	%r12, %rdi
+	call	malloc
+	movq	%r12, %rdi
+	movq	%rax, %r14
+	call	malloc
+	movq	%r12, %rdi
+	movq	%rax, %rbx
+	call	malloc
+	testl	%ebp, %ebp
+	movq	%rax, %r12
+	je	.L3
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movl	$20, (%rbx,%rax,4)
+	movl	$30, (%r12,%rax,4)
+	addq	$1, %rax
+	cmpl	%eax, %r13d
+	ja	.L4
+	movq	%rsp, %rsi
+	xorl	%edi, %edi
+	call	clock_gettime
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	imull	$999, (%rbx,%rax,4), %edx
+	addl	(%r12,%rax,4), %edx
+	movl	%edx, (%r14,%rax,4)
+	addq	$1, %rax
+	cmpl	%eax, %r13d
+	ja	.L6
+.L7:
+	leaq	16(%rsp), %rsi
+	xorl	%edi, %edi
+	call	clock_gettime
+	movq	24(%rsp), %rax
+	subq	8(%rsp), %rax
+	movl	%ebp, %edx
+	pxor	%xmm0, %xmm0
+	movl	$.LC2, %esi
+	pxor	%xmm1, %xmm1
+	movl	$1, %edi
+	cvtsi2sdq	%rax, %xmm0
+	movq	16(%rsp), %rax
+	subq	(%rsp), %rax
+	cvtsi2sdq	%rax, %xmm1
+	movl	$1, %eax
+	divsd	.LC1(%rip), %xmm0
+	addsd	%xmm1, %xmm0
+	call	__printf_chk
+	leal	-1(%rbp), %eax
+	movl	(%r14), %edx
+	movl	$.LC3, %esi
+	movl	$1, %edi
+	movl	(%r14,%rax,4), %ecx
+	xorl	%eax, %eax
+	call	__printf_chk
+	movq	%rbx, %rdi
+	call	free
+	movq	%r12, %rdi
+	call	free
+	movq	%r14, %rdi
+	call	free
+	xorl	%eax, %eax
+	movq	40(%rsp), %rcx
+	xorq	%fs:40, %rcx
+	jne	.L18
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 48
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+.L3:
+	.cfi_restore_state
+	movq	%rsp, %rsi
+	xorl	%edi, %edi
+	call	clock_gettime
+	jmp	.L7
+.L18:
+	call	__stack_chk_fail
+.L17:
+	movl	$.LC0, %edi
+	call	puts
+	orl	$-1, %edi
+	call	exit
+	.cfi_endproc
+.LFE38:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE4:
+	.section	.text.startup
+.LHOTE4:
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC1:
+	.long	0
+	.long	1104006501
+	.ident	"GCC: (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010"
+	.section	.note.GNU-stack,"",@progbits

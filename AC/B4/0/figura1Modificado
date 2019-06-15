@@ -1,0 +1,186 @@
+	.file	"figura1Modificado.c"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC1:
+	.string	"a: %i - b: %i"
+.LC2:
+	.string	" Tiempo(seg.): %11.9f\n"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB3:
+	.section	.text.startup,"ax",@progbits
+.LHOTB3:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB38:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$160072, %rsp
+	.cfi_def_cfa_offset 160128
+	movq	%fs:40, %rax
+	movq	%rax, 160056(%rsp)
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L2:
+	movl	%eax, s(,%rax,8)
+	movl	%eax, s+4(,%rax,8)
+	addq	$1, %rax
+	cmpq	$5000, %rax
+	jne	.L2
+	leaq	16(%rsp), %rsi
+	xorl	%edi, %edi
+	xorl	%r15d, %r15d
+	movl	$s+40000, %r14d
+	call	clock_gettime
+	.p2align 4,,10
+	.p2align 3
+.L3:
+	movl	%r15d, %edx
+	movl	$s, %eax
+	xorl	%r13d, %r13d
+	xorl	%r12d, %r12d
+	xorl	%ebp, %ebp
+	xorl	%ebx, %ebx
+	xorl	%r11d, %r11d
+	xorl	%r10d, %r10d
+	xorl	%r9d, %r9d
+	xorl	%r8d, %r8d
+	xorl	%esi, %esi
+	xorl	%edi, %edi
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movl	(%rax), %ecx
+	addq	$40, %rax
+	leal	(%rdx,%rcx,2), %ecx
+	addl	%ecx, %edi
+	movl	-32(%rax), %ecx
+	leal	(%rdx,%rcx,2), %ecx
+	addl	%ecx, %r8d
+	movl	-24(%rax), %ecx
+	leal	(%rdx,%rcx,2), %ecx
+	addl	%ecx, %r10d
+	movl	-16(%rax), %ecx
+	leal	(%rdx,%rcx,2), %ecx
+	addl	%ecx, %ebx
+	movl	-8(%rax), %ecx
+	leal	(%rdx,%rcx,2), %ecx
+	addl	%ecx, %r12d
+	movl	-36(%rax), %ecx
+	leal	(%rcx,%rcx,2), %ecx
+	subl	%edx, %ecx
+	addl	%ecx, %esi
+	movl	-28(%rax), %ecx
+	leal	(%rcx,%rcx,2), %ecx
+	subl	%edx, %ecx
+	addl	%ecx, %r9d
+	movl	-20(%rax), %ecx
+	leal	(%rcx,%rcx,2), %ecx
+	subl	%edx, %ecx
+	addl	%ecx, %r11d
+	movl	-12(%rax), %ecx
+	leal	(%rcx,%rcx,2), %ecx
+	subl	%edx, %ecx
+	addl	%ecx, %ebp
+	movl	-4(%rax), %ecx
+	leal	(%rcx,%rcx,2), %ecx
+	subl	%edx, %ecx
+	addl	%ecx, %r13d
+	cmpq	%rax, %r14
+	jne	.L4
+	addl	%r8d, %edi
+	addl	%r9d, %esi
+	addl	%edi, %r10d
+	addl	%esi, %r11d
+	addl	%r10d, %ebx
+	addl	%r11d, %ebp
+	addl	%ebx, %r12d
+	addl	%ebp, %r13d
+	cmpl	%r13d, %r12d
+	cmovl	%r12d, %r13d
+	movl	%r13d, 48(%rsp,%r15,4)
+	addq	$1, %r15
+	cmpq	$40000, %r15
+	jne	.L3
+	leaq	32(%rsp), %rsi
+	xorl	%edi, %edi
+	call	clock_gettime
+	movq	40(%rsp), %rax
+	subq	24(%rsp), %rax
+	movl	$.LC1, %esi
+	pxor	%xmm0, %xmm0
+	movl	s+39992(%rip), %ecx
+	movl	20048(%rsp), %edx
+	movl	$1, %edi
+	cvtsi2sdq	%rax, %xmm0
+	movq	32(%rsp), %rax
+	subq	16(%rsp), %rax
+	movapd	%xmm0, %xmm1
+	pxor	%xmm0, %xmm0
+	divsd	.LC0(%rip), %xmm1
+	cvtsi2sdq	%rax, %xmm0
+	xorl	%eax, %eax
+	addsd	%xmm1, %xmm0
+	movsd	%xmm0, 8(%rsp)
+	call	__printf_chk
+	movsd	8(%rsp), %xmm0
+	movl	$.LC2, %esi
+	movl	$1, %edi
+	movl	$1, %eax
+	call	__printf_chk
+	xorl	%eax, %eax
+	movq	160056(%rsp), %rbx
+	xorq	%fs:40, %rbx
+	jne	.L13
+	addq	$160072, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L13:
+	.cfi_restore_state
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE38:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE3:
+	.section	.text.startup
+.LHOTE3:
+	.comm	s,40000,32
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC0:
+	.long	0
+	.long	1104006501
+	.ident	"GCC: (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010"
+	.section	.note.GNU-stack,"",@progbits

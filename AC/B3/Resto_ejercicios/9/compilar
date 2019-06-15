@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc pmm-OpenMP.c -o pmm-OpenMP -O2 -fopenmp

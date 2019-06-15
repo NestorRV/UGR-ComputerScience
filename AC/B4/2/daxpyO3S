@@ -1,0 +1,355 @@
+	.file	"daxpy.c"
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC0:
+	.string	"Faltan no componentes del vector"
+	.align 8
+.LC4:
+	.string	"Tiempo(seg.):%11.9f\t / Tama\303\261o Vectores:%u\n"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC5:
+	.string	"A[0] = %d // A[N-1] = %d.\n"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB6:
+	.section	.text.startup,"ax",@progbits
+.LHOTB6:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB38:
+	.cfi_startproc
+	pushq	%r15
+	.cfi_def_cfa_offset 16
+	.cfi_offset 15, -16
+	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	pushq	%r13
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 112
+	movq	%fs:40, %rax
+	movq	%rax, 40(%rsp)
+	xorl	%eax, %eax
+	cmpl	$1, %edi
+	jle	.L48
+	movq	8(%rsi), %rdi
+	movl	$10, %edx
+	xorl	%esi, %esi
+	call	strtol
+	movl	%eax, %ebp
+	movq	%rax, %rbx
+	salq	$2, %rbp
+	movq	%rbp, %rdi
+	call	malloc
+	movq	%rbp, %rdi
+	movq	%rax, %r14
+	call	malloc
+	movq	%rbp, %rdi
+	movq	%rax, %r12
+	call	malloc
+	testl	%ebx, %ebx
+	movq	%rax, %r13
+	je	.L3
+	movq	%r12, %rbp
+	movl	%ebx, %edx
+	andl	$15, %ebp
+	shrq	$2, %rbp
+	negq	%rbp
+	andl	$3, %ebp
+	cmpl	%ebx, %ebp
+	cmova	%ebx, %ebp
+	cmpl	$5, %ebx
+	ja	.L49
+.L4:
+	cmpl	$1, %edx
+	movl	$20, (%r12)
+	movl	$30, 0(%r13)
+	je	.L26
+	cmpl	$2, %edx
+	movl	$20, 4(%r12)
+	movl	$30, 4(%r13)
+	je	.L27
+	cmpl	$3, %edx
+	movl	$20, 8(%r12)
+	movl	$30, 8(%r13)
+	je	.L28
+	cmpl	$5, %edx
+	movl	$20, 12(%r12)
+	movl	$30, 12(%r13)
+	jne	.L29
+	movl	$20, 16(%r12)
+	movl	$30, 16(%r13)
+	movl	$5, %eax
+.L6:
+	cmpl	%edx, %ebx
+	je	.L50
+.L5:
+	movl	%ebx, %edi
+	leal	-1(%rbx), %r15d
+	movl	%edx, %ecx
+	subl	%edx, %edi
+	leal	-4(%rdi), %esi
+	movl	%r15d, %r11d
+	subl	%edx, %r11d
+	shrl	$2, %esi
+	addl	$1, %esi
+	cmpl	$2, %r11d
+	leal	0(,%rsi,4), %r8d
+	jbe	.L8
+	salq	$2, %rcx
+	movdqa	.LC1(%rip), %xmm1
+	leaq	(%r12,%rcx), %r10
+	xorl	%edx, %edx
+	addq	%r13, %rcx
+	movdqa	.LC2(%rip), %xmm0
+	xorl	%r9d, %r9d
+.L9:
+	addl	$1, %r9d
+	movaps	%xmm1, (%r10,%rdx)
+	movups	%xmm0, (%rcx,%rdx)
+	addq	$16, %rdx
+	cmpl	%esi, %r9d
+	jb	.L9
+	addl	%r8d, %eax
+	cmpl	%r8d, %edi
+	je	.L7
+.L8:
+	movl	%eax, %edx
+	movl	$20, (%r12,%rdx,4)
+	movl	$30, 0(%r13,%rdx,4)
+	leal	1(%rax), %edx
+	cmpl	%edx, %ebx
+	jbe	.L7
+	addl	$2, %eax
+	movl	$20, (%r12,%rdx,4)
+	movl	$30, 0(%r13,%rdx,4)
+	cmpl	%eax, %ebx
+	jbe	.L7
+	movl	$20, (%r12,%rax,4)
+	movl	$30, 0(%r13,%rax,4)
+.L7:
+	xorl	%edi, %edi
+	movq	%rsp, %rsi
+	call	clock_gettime
+	cmpl	$4, %ebx
+	ja	.L51
+	movl	%ebx, %ebp
+.L17:
+	imull	$999, (%r12), %eax
+	addl	0(%r13), %eax
+	cmpl	$1, %ebp
+	movl	%eax, (%r14)
+	je	.L32
+	imull	$999, 4(%r12), %eax
+	addl	4(%r13), %eax
+	cmpl	$2, %ebp
+	movl	%eax, 4(%r14)
+	je	.L33
+	imull	$999, 8(%r12), %eax
+	addl	8(%r13), %eax
+	cmpl	$4, %ebp
+	movl	%eax, 8(%r14)
+	jne	.L34
+	imull	$999, 12(%r12), %eax
+	addl	12(%r13), %eax
+	movl	%eax, 12(%r14)
+	movl	$4, %eax
+.L19:
+	cmpl	%ebp, %ebx
+	je	.L22
+.L18:
+	movl	%ebx, %r8d
+	movl	%r15d, %esi
+	movl	%ebp, %edx
+	subl	%ebp, %r8d
+	subl	%ebp, %esi
+	leal	-4(%r8), %ecx
+	shrl	$2, %ecx
+	addl	$1, %ecx
+	cmpl	$2, %esi
+	leal	0(,%rcx,4), %r9d
+	jbe	.L21
+	salq	$2, %rdx
+	xorl	%edi, %edi
+	leaq	(%r12,%rdx), %r11
+	leaq	0(%r13,%rdx), %r10
+	leaq	(%r14,%rdx), %rsi
+	xorl	%edx, %edx
+.L13:
+	movdqa	(%r11,%rdx), %xmm1
+	addl	$1, %edi
+	movdqa	%xmm1, %xmm2
+	pslld	$4, %xmm2
+	movdqa	%xmm2, %xmm0
+	pslld	$3, %xmm0
+	psubd	%xmm2, %xmm0
+	psubd	%xmm1, %xmm0
+	movdqa	%xmm0, %xmm1
+	pslld	$3, %xmm1
+	paddd	%xmm1, %xmm0
+	movdqu	(%r10,%rdx), %xmm1
+	paddd	%xmm1, %xmm0
+	movups	%xmm0, (%rsi,%rdx)
+	addq	$16, %rdx
+	cmpl	%edi, %ecx
+	ja	.L13
+	addl	%r9d, %eax
+	cmpl	%r9d, %r8d
+	je	.L22
+.L21:
+	movl	%eax, %edx
+	imull	$999, (%r12,%rdx,4), %ecx
+	addl	0(%r13,%rdx,4), %ecx
+	movl	%ecx, (%r14,%rdx,4)
+	leal	1(%rax), %edx
+	cmpl	%edx, %ebx
+	jbe	.L22
+	imull	$999, (%r12,%rdx,4), %ecx
+	addl	$2, %eax
+	addl	0(%r13,%rdx,4), %ecx
+	cmpl	%eax, %ebx
+	movl	%ecx, (%r14,%rdx,4)
+	jbe	.L22
+	imull	$999, (%r12,%rax,4), %edx
+	addl	0(%r13,%rax,4), %edx
+	movl	%edx, (%r14,%rax,4)
+.L22:
+	leaq	16(%rsp), %rsi
+	xorl	%edi, %edi
+	call	clock_gettime
+	movq	24(%rsp), %rax
+	subq	8(%rsp), %rax
+	movl	%ebx, %edx
+	pxor	%xmm0, %xmm0
+	movl	$.LC4, %esi
+	pxor	%xmm1, %xmm1
+	movl	$1, %edi
+	cvtsi2sdq	%rax, %xmm0
+	movq	16(%rsp), %rax
+	subq	(%rsp), %rax
+	cvtsi2sdq	%rax, %xmm1
+	movl	$1, %eax
+	divsd	.LC3(%rip), %xmm0
+	addsd	%xmm1, %xmm0
+	call	__printf_chk
+	movl	(%r14,%r15,4), %ecx
+	movl	(%r14), %edx
+	movl	$.LC5, %esi
+	movl	$1, %edi
+	xorl	%eax, %eax
+	call	__printf_chk
+	movq	%r12, %rdi
+	call	free
+	movq	%r13, %rdi
+	call	free
+	movq	%r14, %rdi
+	call	free
+	xorl	%eax, %eax
+	movq	40(%rsp), %rbx
+	xorq	%fs:40, %rbx
+	jne	.L52
+	addq	$56, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
+	ret
+.L50:
+	.cfi_restore_state
+	leal	-1(%rbx), %r15d
+	jmp	.L7
+.L51:
+	xorl	%eax, %eax
+	testl	%ebp, %ebp
+	je	.L18
+	jmp	.L17
+.L49:
+	xorl	%edx, %edx
+	xorl	%eax, %eax
+	testl	%ebp, %ebp
+	je	.L5
+	movl	%ebp, %edx
+	jmp	.L4
+.L34:
+	movl	$3, %eax
+	jmp	.L19
+.L32:
+	movl	$1, %eax
+	jmp	.L19
+.L33:
+	movl	$2, %eax
+	jmp	.L19
+.L28:
+	movl	$3, %eax
+	jmp	.L6
+.L29:
+	movl	$4, %eax
+	jmp	.L6
+.L26:
+	movl	$1, %eax
+	jmp	.L6
+.L27:
+	movl	$2, %eax
+	jmp	.L6
+.L3:
+	movq	%rsp, %rsi
+	xorl	%edi, %edi
+	movl	$4294967295, %r15d
+	call	clock_gettime
+	jmp	.L22
+.L48:
+	movl	$.LC0, %edi
+	call	puts
+	orl	$-1, %edi
+	call	exit
+.L52:
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE38:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE6:
+	.section	.text.startup
+.LHOTE6:
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
+.LC1:
+	.long	20
+	.long	20
+	.long	20
+	.long	20
+	.align 16
+.LC2:
+	.long	30
+	.long	30
+	.long	30
+	.long	30
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC3:
+	.long	0
+	.long	1104006501
+	.ident	"GCC: (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010"
+	.section	.note.GNU-stack,"",@progbits

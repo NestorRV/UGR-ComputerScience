@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc pmtv-secuencial.c -o pmtv-secuencial -O2 -fopenmp

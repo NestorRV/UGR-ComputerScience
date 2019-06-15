@@ -1,0 +1,172 @@
+	.file	"daxpy.c"
+	.section	.rodata
+	.align 8
+.LC0:
+	.string	"Faltan no componentes del vector"
+	.align 8
+.LC2:
+	.string	"Tiempo(seg.):%11.9f\t / Tama\303\261o Vectores:%u\n"
+.LC3:
+	.string	"A[0] = %d // A[N-1] = %d.\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	addq	$-128, %rsp
+	movl	%edi, -100(%rbp)
+	movq	%rsi, -112(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	movl	$999, -88(%rbp)
+	cmpl	$1, -100(%rbp)
+	jg	.L2
+	movl	$.LC0, %edi
+	call	puts
+	movl	$-1, %edi
+	call	exit
+.L2:
+	movq	-112(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rax
+	movq	%rax, %rdi
+	call	atoi
+	movl	%eax, -84(%rbp)
+	movl	-84(%rbp), %eax
+	salq	$2, %rax
+	movq	%rax, %rdi
+	call	malloc
+	movq	%rax, -80(%rbp)
+	movl	-84(%rbp), %eax
+	salq	$2, %rax
+	movq	%rax, %rdi
+	call	malloc
+	movq	%rax, -72(%rbp)
+	movl	-84(%rbp), %eax
+	salq	$2, %rax
+	movq	%rax, %rdi
+	call	malloc
+	movq	%rax, -64(%rbp)
+	movl	$0, -96(%rbp)
+	jmp	.L3
+.L4:
+	movl	-96(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	movq	-72(%rbp), %rax
+	addq	%rdx, %rax
+	movl	$20, (%rax)
+	movl	-96(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	movq	-64(%rbp), %rax
+	addq	%rdx, %rax
+	movl	$30, (%rax)
+	addl	$1, -96(%rbp)
+.L3:
+	movl	-96(%rbp), %eax
+	cmpl	-84(%rbp), %eax
+	jb	.L4
+	leaq	-48(%rbp), %rax
+	movq	%rax, %rsi
+	movl	$0, %edi
+	call	clock_gettime
+	movl	$0, -92(%rbp)
+	jmp	.L5
+.L6:
+	movl	-92(%rbp), %eax
+	leaq	0(,%rax,4), %rdx
+	movq	-80(%rbp), %rax
+	addq	%rdx, %rax
+	movl	-92(%rbp), %edx
+	leaq	0(,%rdx,4), %rcx
+	movq	-72(%rbp), %rdx
+	addq	%rcx, %rdx
+	movl	(%rdx), %edx
+	imull	-88(%rbp), %edx
+	movl	-92(%rbp), %ecx
+	leaq	0(,%rcx,4), %rsi
+	movq	-64(%rbp), %rcx
+	addq	%rsi, %rcx
+	movl	(%rcx), %ecx
+	addl	%ecx, %edx
+	movl	%edx, (%rax)
+	addl	$1, -92(%rbp)
+.L5:
+	movl	-92(%rbp), %eax
+	cmpl	-84(%rbp), %eax
+	jb	.L6
+	leaq	-32(%rbp), %rax
+	movq	%rax, %rsi
+	movl	$0, %edi
+	call	clock_gettime
+	movq	-32(%rbp), %rdx
+	movq	-48(%rbp), %rax
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	pxor	%xmm1, %xmm1
+	cvtsi2sdq	%rax, %xmm1
+	movq	-24(%rbp), %rdx
+	movq	-40(%rbp), %rax
+	subq	%rax, %rdx
+	movq	%rdx, %rax
+	pxor	%xmm0, %xmm0
+	cvtsi2sdq	%rax, %xmm0
+	movsd	.LC1(%rip), %xmm2
+	divsd	%xmm2, %xmm0
+	addsd	%xmm1, %xmm0
+	movsd	%xmm0, -56(%rbp)
+	movl	-84(%rbp), %edx
+	movq	-56(%rbp), %rax
+	movl	%edx, %esi
+	movq	%rax, -120(%rbp)
+	movsd	-120(%rbp), %xmm0
+	movl	$.LC2, %edi
+	movl	$1, %eax
+	call	printf
+	movl	-84(%rbp), %eax
+	subl	$1, %eax
+	movl	%eax, %eax
+	leaq	0(,%rax,4), %rdx
+	movq	-80(%rbp), %rax
+	addq	%rdx, %rax
+	movl	(%rax), %edx
+	movq	-80(%rbp), %rax
+	movl	(%rax), %eax
+	movl	%eax, %esi
+	movl	$.LC3, %edi
+	movl	$0, %eax
+	call	printf
+	movq	-72(%rbp), %rax
+	movq	%rax, %rdi
+	call	free
+	movq	-64(%rbp), %rax
+	movq	%rax, %rdi
+	call	free
+	movq	-80(%rbp), %rax
+	movq	%rax, %rdi
+	call	free
+	movl	$0, %eax
+	movq	-8(%rbp), %rsi
+	xorq	%fs:40, %rsi
+	je	.L8
+	call	__stack_chk_fail
+.L8:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.section	.rodata
+	.align 8
+.LC1:
+	.long	0
+	.long	1104006501
+	.ident	"GCC: (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010"
+	.section	.note.GNU-stack,"",@progbits

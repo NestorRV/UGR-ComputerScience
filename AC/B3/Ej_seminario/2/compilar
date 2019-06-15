@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gcc schedule-clause.c -o schedule-clause -O2 -fopenmp
+gcc schedule-claused.c -o schedule-claused -O2 -fopenmp
+gcc schedule-clauseg.c -o schedule-clauseg -O2 -fopenmp
+gcc schedule-clause-4.c -o schedule-clause-4 -O2 -fopenmp
+gcc schedule-claused-4.c -o schedule-claused-4 -O2 -fopenmp
+gcc schedule-clauseg-4.c -o schedule-clauseg-4 -O2 -fopenmp

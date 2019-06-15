@@ -1,0 +1,15 @@
+[-RECORDATORIO, quitar todo este texto en rojo del cuaderno definitivo–
+1. COMENTARIOS
+1) Esta plantilla no sustituye al guion de prácticas, se ha preparado para ahorrarles trabajo. Las preguntas de esta plantilla se han extraído del guion de prácticas de programación paralela, si tiene dudas sobre el enunciado consulte primero el guion.
+2) Este cuaderno de prácticas se utilizará para asignarle una puntuación durante la evaluación continua de prácticas y también lo utilizará como material de estudio y repaso para preparar el examen de prácticas escrito. Luego redáctelo con cuidado, y sea ordenado y claro.
+3) No use máquinas virtuales.
+
+2. NORMAS SOBRE EL USO DE LA PLANTILLA
+1) Usar interlineado SENCILLO.
+2) Respetar los tipos de letra y tamaños indicados:
+- Calibri-11 o Liberation Serif-11 para el texto
+- Courier New-10 o Liberation Mono-10 para nombres de fichero, comandos, variables de entorno, etc., cuando se usan en el texto.
+- Courier New o Liberation Mono de tamaño 8 o 9 para el código fuente en los listados de código fuente.
+- Formatee el código fuente de los listados para que sea legible, limpio y claro. Consulte, como ejemplo, los Listados 1 y 2 del guion (tabule, comente, …)
+3) Insertar las capturas de pantalla donde se pidan y donde se considere oportuno
+Recuerde que debe adjuntar al zip de entrega, el pdf de este fichero, todos los ficheros con código fuente implementados/utilizados y el resto de ficheros que haya implementado/utilizado (scripts, hojas de cálculo, etc.), lea la Sección 1.4 del guion]

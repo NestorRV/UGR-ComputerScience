@@ -1,0 +1,11 @@
+La mayoría de errores han sido a la hora de compilar, por lo general a la hora
+de decidir si las variables deben ser compartidas o no, es decir, al aplicar la
+regla general que se vio en el seminario.
+
+Otro error común ha sido a la hora de manejar las variables que controlan el for.
+Este error ha sido en ejecución, al ver que los resultado obtenidos no eran los
+correctos.
+
+Para solucionarlo, he tenido que revisar las variables una por una para ver si su
+ámbito era el correcto. Tras revisarlas y ajustar los ámbitos de las variables
+empleadas en mi programa, la solución obtenida ha sido la correcta. 

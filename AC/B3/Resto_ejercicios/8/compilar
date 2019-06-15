@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc pmm-secuencial.c -o pmm-secuencial -O2 -fopenmp

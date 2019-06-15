@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc scheduled-clauseModificado4.c -o scheduled-clauseModificado4 -O2 -fopenmp

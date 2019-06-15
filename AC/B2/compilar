@@ -1,0 +1,5 @@
+#!/bin/bash
+gcc 8-pmv-secuencial.c -o 8-pmv-secuencial_O2 -O2 -fopenmp
+gcc 9-pmv-OpenMP-a.c -o 9-pmv-OpenMP-a_O2 -O2 -fopenmp
+gcc 9-pmv-OpenMP-b.c -o 9-pmv-OpenMP-b_O2 -O2 -fopenmp
+gcc 10-pmv-OpenmMP-reduction.c -o 10-pmv-OpenmMP-reduction_O2 -O2 -fopenmp

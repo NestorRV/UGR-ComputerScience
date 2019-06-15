@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gcc if-clauseModificado.c -o if-clauseModificado -O2 -fopenmp
