@@ -1,0 +1,687 @@
+\documentclass[a4paper,titlepage,12pt]{report}
+
+\usepackage{graphicx} %Imágenes
+\usepackage[latin1]{inputenc} %Tildes
+\usepackage[spanish,es-tabla]{babel} %Español, es-table: llamar tablas en vez de cuadros
+\usepackage[breaklinks=true]{hyperref} %Hiperenlaces
+\usepackage{amssymb, amsmath, amsbsy} %Símbolos matemáticos
+\usepackage{float} %Mover las imágenes usando [H]
+\usepackage{eurosym} %Símbolo de euro \euro
+\usepackage{listings} %Código
+\usepackage{multirow} %Combinar celdas
+\usepackage{tikz} %Dibujar e incluir gráficos
+
+\numberwithin{figure}{section} %Hace que la primera figura de cada sección X sea X.1
+\numberwithin{table}{section} %Hace que la primera tabla de cada sección X sea X.1
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}			
+			\begin{figure}[htb]
+				\begin{center}
+					\includegraphics[width=12cm]{./Imagenes/ugr.png}
+				\end{center}
+			\end{figure}
+			
+			\vspace*{0.8cm}
+			\begin{Large}
+				\textbf{Grado en Ingeniería Informática.}\\
+			\end{Large}
+			\begin{Huge}
+				\vspace{1.5cm}				
+				\textbf{Portafolio de Prácticas.} \\
+			\end{Huge}
+			\vspace*{0.76cm}
+			\rule{100mm}{0.1mm}\\
+			\vspace*{0.5cm}
+			\begin{large}
+				\textbf{Nombre de la asignatura:}\\
+				Modelos de Computación.\\
+				\vspace*{0.5cm}
+				\textbf{Realizado por:}\\
+				Néstor Rodríguez Vico \\
+				\vspace*{0.5cm}
+				\textit{Este portafolio contiene 7 prácticas (incluidas las dos opcionales), han sido corregidas y puntuadas con la máxima calificación.}\\
+			
+				\begin{figure}[htb]
+					\begin{center}
+						\includegraphics[width=5cm]{./Imagenes/etsiit.png}
+					\end{center}
+				\end{figure}
+				\vspace*{-0.6cm}
+				ESCUELA TÉCNICA SUPERIOR DE INGENIERÍAS INFORMÁTICA Y DE TELECOMUNICACIÓN.\\
+				\rule{20mm}{0.1mm}\\
+				\vspace*{0.6cm}
+				Granada, \today.
+			\end{large}
+		\end{center}
+	\end{titlepage}
+	
+	%--------------Indice--------------
+	\tableofcontents
+	%\listoffigures %Imagenes
+	%\listoftables %Tablas
+	\clearpage{}
+	%----------------------------------
+	
+	\chapter[Práctica 1: Gramáticas y lenguajes.]{Práctica 1: Gramáticas y lenguajes.}
+	\section[Ejercicio 1.]{Ejercicio 1.}
+	
+	Sea G = (V, T, P, S), donde V = \{S, A, B\}, T = \{a, b\}, el símbolo de partida es S y las reglas son: 
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llll}
+	S$\rightarrow$aB & S$\rightarrow$bA & A$\rightarrow$a & A$\rightarrow$aS\\
+	A$\rightarrow$bAA & B$\rightarrow$b &  B$\rightarrow$bS & B$\rightarrow$aBB\\
+	\end{tabular}
+	\end{table}
+	
+	Esta gramática genera el lenguaje: 
+	\begin{center}
+	L(G) = \{u $\mid$ u $\in$ \{a, b\} + y N$_{a}$(u) = N$_{b}$(u)\} \\ 
+	\end{center}
+	donde N$_{a}$(u) y N$_{b}$(u) son el número de apariciones de símbolos a y b en u, respectivamente. \\
+	
+	Para demostrar que esta gramática genera dicho lenguaje tenemos que demostrar dos ideas: \\
+	- Todas las palabra generadas son del tipo N$_{a}$(u) = N$_{b}$(u). \\
+	- Que se generan todas las cadenas posibles con N$_{a}$(u) = N$_{b}$(u). \\
+
+	Pasemos a demostrar la primera de ellas. Para ello usaremos las siguientes interpretaciones: \\
+	- A: palabra con una \textit{a} de más. \\
+	- B: palabra con una \textit{b} de más. \\
+	- S: palabra con igual número de \textit{a} que \textit{b}. \\
+	Las 3 producciones que generamos tirando de B mantienen la coherencia de nuestra interpretación. Dichas producciones son: B$\rightarrow$b, B$\rightarrow$bS (dado que en S se da N$_{a}$(u) = N$_{b}$(u) y se le añade la \textit{b} previa) y B$\rightarrow$aBB (dado que la primera B anula la \textit{a} que se añade al principio y la segunda B concede la \textit{b} extra que se necesita). \\
+	Al igual sucede paras las producciones que generamos tirando de A y de S. \\
+	De esta manera queda demostrado que mediante dicha gramática sólo se generan palabras con N$_{a}$(u) = N$_{b}$(u). \\
+	
+	A continuación vamos a demostrar la segunda idea. Podemos generar cadenas que empiezan por \textit{a} usando la regla S$\rightarrow$aB y cadenas que empiecen por \textit{b} usando la regla S$\rightarrow$bA. Elegimos una opción de las dos anteriores, por ejemplo, generar cadenas que empiecen por \textit{b}. ¿Es posible que el segundo elemento de la cadena sea una \textit{a}? Sí, usando la 4$^{a}$ regla, A$\rightarrow$aS, así tenemos S$\rightarrow$bA$\rightarrow$baS. ¿En lugar de una \textit{a} podría ir una \textit{b}? Sí, usando la 5$^{a}$ regla, A$\rightarrow$bAA, así tenemos S$\rightarrow$bA$\rightarrow$bbAA. Al igual sucedería si en el primer paso hubiésemos elegido empezar por \textit{a} en vez de por \textit{b}.\\
+	
+	Este proceso se puede repetir indefinidamente generando así todas las cadenas posibles.
+	\clearpage{}
+	
+	\section[Ejercicio 2.]{Ejercicio 2.}
+	
+	Sea G = (\{S, X, Y\}, \{a, b, c\}, P, S) donde P tiene las reglas:
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llll}
+	S$\rightarrow$abc & S$\rightarrow$aXbc & Xb$\rightarrow$bX & Xc$\rightarrow$Ybcc \\
+	bY$\rightarrow$Yb & aY$\rightarrow$aaX & aY$\rightarrow$aa \\
+	\end{tabular}
+	\end{table}
+	
+	Esta gramática genera el lenguaje:
+	\begin{center}
+		\{a$^{n}$b$^{n}$c$^{n}$ $\mid$ n = 1, 2, ...\}
+	\end{center}
+	
+	Al igual que en el ejercicio anterior, la idea es demostrar que la gramática G genera el lenguaje L. Inicialmente tenemos dos posibilidades: S$\rightarrow$abc y S$\rightarrow$aXbc. ¿Que hago para generar la cadenas \textit{aabbcc}? Partimos de la regla S$\rightarrow$aXbc. A continuación usamos la regla Xb$\rightarrow$bX y así tenemos \textit{abXc}. Luego usamos Xc$\rightarrow$Ybcc para conseguir \textit{aYbbcc}. Finalmente usamos la regla aY$\rightarrow$aa para obtener la cadena deseada, \textit{aabbcc}. \\
+	
+	Podemos observar que la variable \textit{X} es una variable de desplazamiento hacia la derecha, buscando el elemento \textit{c} y que la variable \textit{Y} es una variable de desplazamiento hacia la izquierda, buscando el elemento \textit{a}. \\
+	
+	Este proceso se puede repetir de forma indefinida para ir aumentando el número de \textit{a}, \textit{b} y \textit{c}.
+	
+	\chapter[Práctica 2: Gramáticas regulares.]{Práctica 2: Gramáticas regulares.}
+	
+	Determinar si la gramática G = (\{S, A, B\}, \{a, b, c, d\}, P, S) donde P es el conjunto de reglas de producción: 
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lllll}
+	S$\rightarrow$AB & A$\rightarrow$Ab & A$\rightarrow$a & B$\rightarrow$cB & B$\rightarrow$d \\
+	\end{tabular}
+	\end{table}
+
+	genera un lenguaje de tipo 3.
+	
+	\section[Solución.]{Solución.}
+	
+	Lo primero que debemos hacer es ver que lenguaje genera dicha gramática. Para ver esto lo que debemos hacer es partir del símbolo inicial y aplicar reglas de producción de manera ``aleatoria'' hasta poder identificar un patrón que nos indique cual es el lenguaje que genera dicha gramática. \\
+	
+	Si partimos de S$\rightarrow$AB y aplicamos la regla de producción A$\rightarrow$Ab un número de veces, \textit{i}, obtendremos una cadena del estilo \textit{Ab..bB} con \textit{i} número de \textit{b}. Si a continuación aplicamos la regla B$\rightarrow$cB un número de veces, \textit{j}, obtendremos una cadena del estilo \textit{Ab..bc..cB} con \textit{j} número de \textit{c}. Si aplicamos estas dos reglas cualquier número de veces, obtendremos una cadena cada vez más larga con un mayor número de símbolos terminales \textit{a} y \textit{b}. Para terminar de generar una cadena debemos sustituir las variables restantes por símbolos terminales usando las reglas de producción disponibles, en este caso podemos cambiar la variable \textit{A} por el símbolo terminal \textit{a} usando la regla de producción A$\rightarrow$a y la variable \textit{B} por el símbolo terminal \textit{d} usando la regla de producción B$\rightarrow$d. De esta manera nuestra cadena generada tendría el estilo \textit{ab..bc..cd}. \\
+	
+	Una vez hemos visto la cadena generada, podemos darnos observar que el lenguaje generado es el siguiente: 
+	\begin{center}
+		L = \{{ab$^{i}$c$^{j}$d : i, j $\in$ N}\}
+	\end{center}
+		
+	Podemos ver que no se trata de una gramática de tipo 3 observando las reglas de producción de la gramática. ¿Por qué no es de tipo 3? Para que sea una gramática de tipo 3, todas las reglas de producción deben tener el formato:
+	\begin{center}
+		A$\rightarrow$uB ó A$\rightarrow$u
+	\end{center}
+	es decir, en la parte izquierda de la ``flecha'' sólo puede haber una variable y en la parte derecha un conjunto de símbolos terminales y al final de todo, opcionalmente, una única variable. Esta condición no la cumple la regla de producción S$\rightarrow$AB, por lo tanto no se trata de una gramática tipo 3. \\
+	
+	Pero, ¿se podría generar este mismo lenguaje usando una gramática de tipo 3? Para ello habría que cambiar las reglas de producción por otras. \\
+	
+	Como queremos obtener una cadena que empiece por \textit{a} y continué por un número \textit{i} de \textit{b} lo más lógico sería partir de la regla de producción S$\rightarrow$aB y a continuación aplicar la misma regla que la proporcionada en el enunciado del ejercicio, B$\rightarrow$bB, de esta manera podemos añadir el número que deseemos de \textit{b}.Con estas dos reglas podemos obtener una cadena del estilo \textit{ab..bB}. A continuación nos interesa generar una sucesión finita de \textit{c}, por lo que sería lógico pensar añadir la regla de producción B$\rightarrow$cB. Así de podría añadir cualquier número de \textit{c}. Esta regla de producción genera la cadena que estamos deseando, pero, ¿sólo esa cadena? La respuesta es no, ya que si aplicamos de manera intercalada las reglas de producción B$\rightarrow$bB y B$\rightarrow$cB obtendríamos una cadena del estilo \textit{ab..bc..cb..bc..} y así sucesivamente. Para corregir esto, lo que debemos hacer es cambiar la regla anterior por C$\rightarrow$cC y añadir una regla que nos permita cambiar la variable \textit{B} por la variable \textit{C}, dicha regla es B$\rightarrow$C. De esta manera, aplicando repetidas veces las reglas de producción, tendríamos una cadena del estilo \textit{ab..bc..cD}. Finalmente y para terminar, añadimos la regla C$\rightarrow$d para obtener la cadena que estamos deseando. \\
+	
+	Las reglas de producción de nuestra nueva gramática son: 
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lllll}
+	S$\rightarrow$aB & B$\rightarrow$bB & B$\rightarrow$C & C$\rightarrow$cC & C$\rightarrow$d
+	\end{tabular}
+	\end{table}
+	
+	\chapter[Práctica 3: Máquinas de estados.]{Práctica 3: Máquinas de estados.}
+	
+	En esta práctica vamos a desarrollar una máquina de estados que se encarga de cifrar y descifrar cadenas dadas en la cinta de entrada.
+	
+	\section[Cifrado.]{Cifrado.}
+	
+	La máquina de estados que se encarga de cifrar la cadena es la siguiente: \\
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=0.2]
+		\tikzstyle{every node}+=[inner sep=0pt]
+		\draw [black] (52.8,-24.9) circle (3);
+		\draw (52.8,-24.9) node {$q_1$};
+		\draw [black] (29.4,-24.9) circle (3);
+		\draw (29.4,-24.9) node {$q_0$};
+		\draw [black] (51.477,-22.22) arc (234:-54:2.25);
+		\draw (52.8,-17.65) node [above] {$1/0$};
+		\fill [black] (54.12,-22.22) -- (55,-21.87) -- (54.19,-21.28);
+		\draw [black] (28.077,-22.22) arc (234:-54:2.25);
+		\draw (29.4,-17.65) node [above] {$0/0$};
+		\fill [black] (30.72,-22.22) -- (31.6,-21.87) -- (30.79,-21.28);
+		\draw [black] (24.4,-24.9) -- (26.4,-24.9);
+		\fill [black] (26.4,-24.9) -- (25.6,-24.4) -- (25.6,-25.4);
+		\draw [black] (32.18,-23.776) arc (108.8992:71.1008:27.54);
+		\fill [black] (50.02,-23.78) -- (49.43,-23.04) -- (49.1,-23.99);
+		\draw (41.1,-21.79) node [above] {$1/1$};
+		\draw [black] (50.112,-26.228) arc (-67.37584:-112.62416:23.428);
+		\fill [black] (32.09,-26.23) -- (32.63,-27) -- (33.02,-26.07);
+		\draw (41.1,-28.53) node [below] {$0/1$};
+		\end{tikzpicture}
+	\end{center}
+	
+	Esta máquina de estados está construida a partir de la siguiente tabla:
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Estado} & \textbf{Símbolo anterior leído} & \textbf{Símbolo leído} & \textbf{Símbolo escrito} \\ \hline
+	\multirow{4}{*}{q$_o$} & \multirow{2}{*}{Primer símbolo} & 0 & 0 \\ \cline{3-4} 
+	&  & 1 & 1 \\ \cline{2-4} 
+	& \multirow{2}{*}{0} & 0 & 0 \\ \cline{3-4} 
+	&  & 1 & 1 \\ \hline
+	\multirow{2}{*}{q$_1$} & \multirow{2}{*}{1} & 0 & 1 \\ \cline{3-4} 
+	&  & 1 & 0 \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	Usaremos la siguiente interpretación:
+	
+	\begin{itemize}
+	\item \textit{q$_0$:} el símbolo anterior leído es 0 o es el primer símbolo que se lee.
+	\item \textit{q$_1$:} el símbolo anterior leído es 1.
+	\end{itemize}
+	Los estados se usan para ``recordar'' el valor que se ha leído anteriormente. Por ejemplo, si vamos o nos quedamos en q$_0$, ``recordamos'' que hemos leído un 0. \\
+	
+	Para la cadena de entrada \textit{1000101} se obtiene la cadena cifrada \textit{1100111}.
+	
+	\section[Descifrado.]{Descifrado.}
+	
+	Al igual que para la encriptación había que fijarse en la entrada de la máquina de estados, en este caso tenemos que fijarnos en la salida. La idea es similar, sólo que en vez de escribir 0 ó 1 en función del número leído, lo hacemos en función del número escrito con anterioridad. \\
+	
+	Para ver que elemento debemos escribir en la cinta de salida, usaremos la siguiente tabla:
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Estado} & \textbf{Símbolo anterior escrito} & \textbf{Símbolo escrito} & \textbf{Símbolo escrito} \\ \hline
+	\multirow{4}{*}{q$_o$} & \multirow{2}{*}{Primer símbolo} & 0 & 0 \\ \cline{3-4} 
+	&  & 1 & 1 \\ \cline{2-4} 
+	& \multirow{2}{*}{0} & 0 & 0 \\ \cline{3-4} 
+	&  & 1 & 1 \\ \hline
+	\multirow{2}{*}{q$_1$} & \multirow{2}{*}{1} & 0 & 1 \\ \cline{3-4} 
+	&  & 1 & 0 \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	De esta manera, para la cinta de entrada cifrada \textit{1100111} obtendríamos la salida \textit{1000101}. \\
+	
+	Finalmente, para ver la dirección de las transiciones debemos ver lo que se ha escrito, es decir, lo que está a la derecha de la barra en cada estado. \\
+	
+	Con estas pautas, la máquina de estados que obtenemos es la siguiente: \\
+	
+	\begin{center}
+	\begin{tikzpicture}[scale=0.2]
+	\tikzstyle{every node}+=[inner sep=0pt]
+	\draw [black] (52.8,-24.9) circle (3);
+	\draw (52.8,-24.9) node {$q_1$};
+	\draw [black] (29.4,-24.9) circle (3);
+	\draw (29.4,-24.9) node {$q_0$};
+	\draw [black] (51.477,-22.22) arc (234:-54:2.25);
+	\draw (52.8,-17.65) node [above] {$0/1$};
+	\fill [black] (54.12,-22.22) -- (55,-21.87) -- (54.19,-21.28);
+	\draw [black] (28.077,-22.22) arc (234:-54:2.25);
+	\draw (29.4,-17.65) node [above] {$0/0$};
+	\fill [black] (30.72,-22.22) -- (31.6,-21.87) -- (30.79,-21.28);
+	\draw [black] (24.4,-24.9) -- (26.4,-24.9);
+	\fill [black] (26.4,-24.9) -- (25.6,-24.4) -- (25.6,-25.4);
+	\draw [black] (32.18,-23.776) arc (108.8992:71.1008:27.54);
+	\fill [black] (50.02,-23.78) -- (49.43,-23.04) -- (49.1,-23.99);
+	\draw (41.1,-21.79) node [above] {$1/1$};
+	\draw [black] (50.112,-26.228) arc (-67.37584:-112.62416:23.428);
+	\fill [black] (32.09,-26.23) -- (32.63,-27) -- (33.02,-26.07);
+	\draw (41.1,-28.53) node [below] {$1/0$};
+	\end{tikzpicture}
+	\end{center}
+	
+	\chapter[Práctica 4: Autómatas con lex.]{Práctica 4: Autómatas con lex.}
+	
+	\section[Parte 1.]{Parte 1.}
+	
+	En esta práctica vamos a manejar ficheros lex. El autómata que voy a usar es el que hemos visto en clase de teoría. El fichero lex es el siguiente:
+	\lstset{
+	    frame=single,
+	    breaklines=true,
+	    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+	}
+	\begin{lstlisting}[basicstyle=\footnotesize]
+	car      [a-zA-Z]
+	digito   [0-9]
+	signo    (\-|\+)
+	suc      ({digito}+)
+	enter    ({signo}?{suc})
+	real1    ({enter}\.{digito}*)
+	real2    ({signo}?\.{suc})
+		
+		int ent=0, real=0, ident=0, sumaent=0;
+	%%
+		int i;
+	{enter}                    {ent++; sscanf(yytext," %d",&i); sumaent += i; printf("Numero entero %s\n",yytext);}
+	({real1}|{real2})          {real++; printf("Num. real %s\n",yytext);}
+	{car}({car}|{digito})*     {ident++; printf("Var. ident. %s\n",yytext);}
+	.|\n                       {;}
+	%%
+	yywrap()                   {printf("Numero de Enteros %d, reales %d, ident %d, Suma de Enteros %d",ent,real,ident,sumaent); return 1;}
+	\end{lstlisting}
+	
+	Una vez tenemos el fichero lex preparado, preparamos el fichero de entrada con el que trabajará nuestro autómata. En mi caso el dichero de entrada es el siguiente: \\
+	
+	\begin{lstlisting}[basicstyle=\footnotesize]
+	3.3
+	+3
+	-3
+	-33333333
+	597.89
+	-3
+	0
+	ModelosDeComputacion
+	-303030
+	\end{lstlisting}
+	
+	Para ver que funciona correctamente tenemos que seguir los siguientes pasos: 
+	\begin{enumerate}
+		\item Ejecutamos lex sobre nuestro fichero \textit{p4.lex}: \textit{lex p4.lex}
+		\item Compilamos el programa que ha creado lex: \textit{gcc lex.yy.c -o p4 -ll}
+		\item Ejecutamos \textit{p4} pasándole como entrada nuestro fichero de entrada, \textit{entrada}, y redirigiendo la salida a un fichero, \textit{salida}, para ver el resultado obtenido: \textit{p4 $<$ entrada $>$ salida}
+	\end{enumerate}
+	
+	Una vez hemos seguido los pasos, el contenido del fichero \textit{salida} es el siguiente:
+	
+	\begin{lstlisting}[basicstyle=\footnotesize]
+	Num. real 3.3
+	Numero entero +3
+	Numero entero -3
+	Numero entero -33333333
+	Num. real 597.89
+	Numero entero -3
+	Numero entero 0
+	Var. ident. ModelosDeComputacion
+	Numero entero -303030
+	Numero de Enteros 6, reales 2, ident 1, Suma de Enteros -33636366
+	\end{lstlisting}
+	
+	\section[Wordcount con \textit{lex}.]{Wordcount con \textit{lex}.}
+	
+	Esta parte de la práctica la he realizado con Míriam Mengíbar Rodríguez. Hemos hecho un programa en C apoyado en \textit{lex} que implementa la utilidad \textit{wordcount} disponible en los sistemas UNIX. Primero hemos definido 3 variables globales para llevar cuenta de lo procesado hasta el momento. También hemos definido cuatro términos a reconocer: \textit{caracter}, \textit{digito}, \textit{palabra} y \textit{linea}. Finalmente, hemos definido tres reglas una para contar el número de líneas, otra para contar el número de palabras y otra para contar el número de caracteres. El programa obtenido es el siguiente:
+	
+	\begin{lstlisting}[basicstyle=\footnotesize]
+%{
+#include <stdio.h>
+#include <stdlib.h>
+int num_caracteres = 0, num_palabras = 0, num_lineas = 0;
+%}
+
+caracter [a-zA-ZáäàâÁÄÀÂéëêèÉËÈÊíïìîÍÏÌÎóöòôÓÖÒÔúùûüÚÜÙûçÇñÑ]
+digito [0-9]
+palabra ({caracter}|{digito})+
+linea \n
+
+%%
+
+{linea} {num_caracteres++; num_lineas++;}
+{palabra} {num_palabras++; num_caracteres += strlen(yytext);}
+. {num_caracteres++;}
+
+%%
+
+int main(){
+ yylex();
+ printf("Numero de caracteres: %d // ", num_caracteres);
+ printf("Numero de palabras: %d // ", num_palabras);
+ printf("Numero de lineas: %d\n", num_lineas);
+}
+	\end{lstlisting}
+	
+	Para ver que funciona correctamente tenemos que seguir los siguientes pasos: 
+	\begin{enumerate}
+		\item Ejecutamos lex sobre nuestro fichero \textit{wordcount.l}: \textit{lex wordcount.l}
+		\item Compilamos el programa que ha creado lex: \textit{gcc lex.yy.c -o wc -ll}
+		\item Ejecutamos \textit{wc} pasándole como entrada nuestro fichero de entrada, \textit{entrada}, y redirigiendo la salida a un fichero, \textit{salida}, para ver el resultado obtenido: \textit{wc $<$entrada$>$ salida}
+	\end{enumerate}
+	
+	Como fichero de entrada voy a usar un poema de Federico García Lorca. El poema es el siguiente:
+	
+	\begin{center}
+		Todos te desean pero ninguno te ama. \\
+		Nadie puede quererte, serpiente, \\
+		porque no tienes amor, \\
+		porque estás seca como la paja seca \\
+		y no das fruto. \\
+		Tienes el alma como la piel de los viejos. \\
+		Resígnate. No puedes hacer más \\
+		sino encender las manos de los hombres \\
+		y seducirlos con las promesas de tu cuerpo. \\
+		Alégrate. En esa profesión del deseo \\
+		nadie como tú para simular inocencia \\
+		y para hechizar con tus ojos inmensos. \\
+	\end{center}
+	
+	El resultado de la ejecución de nuestro fichero lex sobre dicho poema es el siguiente:
+	
+	\begin{lstlisting}[basicstyle=\footnotesize]
+Numero de caracteres: 432 // Numero de palabras: 74 // Numero de lineas: 12
+	\end{lstlisting}
+	
+	\chapter[Práctica 5: Gramáticas ambiguas.]{Práctica 5: Gramáticas ambiguas.}
+	
+	Sea la gramática: 
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llll}
+	E$\rightarrow$I & E$\rightarrow$I-E & E$\rightarrow$E-I & I$\rightarrow$a$\mid$b$\mid$c$\mid$d \\  
+	\end{tabular}
+	\end{table}
+	
+	¿Es posible encontrar una gramática que genere el mismo lenguaje pero que no sea ambigua y por lo tanto el lenguaje no sea inherentemente ambiguo?
+	
+	\section[Solución.]{Solución.}
+	
+	La respuesta es que sí, simplemente basta con eliminar la regla de producción E$\rightarrow$I-E o la regla de producción E$\rightarrow$E-I. Por lo tanto, podemos tener dos gramáticas que generan dicho lenguaje y no son ambiguas. La primera de ellas sería:
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lll}
+	E$\rightarrow$I & E$\rightarrow$E-I & I$\rightarrow$a$\mid$b$\mid$c$\mid$d \\  
+	\end{tabular}
+	\end{table}
+	
+	La segunda gramática sería:		
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lll}
+	E$\rightarrow$I & E$\rightarrow$I-E & I$\rightarrow$a$\mid$b$\mid$c$\mid$d \\  
+	\end{tabular}
+	\end{table}
+	
+	\chapter[Práctica 6: Forma normal de \textit{Chomsky}.]{Práctica 6: Forma normal de \textit{Chomsky}.}
+	
+	\section[Enunciado.]{Enunciado.}
+	Sea la gramática \textit{G} = (\{S, A, B, C, D, E, F\}, \{a, b, c\}, P$_0$, S) y P$_0$:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$B &  A$\rightarrow$aCC & A$\rightarrow$baD \\
+	B$\rightarrow$cBD & B$\rightarrow$$\varepsilon$ & B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD \\
+	D$\rightarrow$a & D$\rightarrow$EF & E$\rightarrow$Eb & F$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	Obtenga la gramática correspondiente a la gramática \textit{G} en forma normal de \textit{Chomsky}.
+	
+	\section[Solución.]{Solución.}
+
+	Para llegar a la forma normal de \textit{Chomsky} vamos a seguir los siguientes pasos:
+	\begin{enumerate}
+	    \item Eliminar símbolos y producciones inútiles.
+	    \item Eliminar producciones nulas.
+	    \item Eliminar producciones unitarias.
+	    \item Normalizar la gramática en forma normal de \textit{Chomsky}.
+	\end{enumerate}
+	
+	\subsection[Eliminar símbolos y producciones inútiles.]{Eliminar símbolos y producciones inútiles.}
+	
+	Para este paso, vamos a usar una estructura adicional, \textit{V$_t$} en la cual vamos a ir introduciendo las variables que se encuentran a la izquierda de reglas de producción que a la derecha tienen un símbolo terminal. Tras introducir dichas variables en \textit{V$_t$}, realizamos sucesivas pasadas introduciendo las variables que se encuentran a la izquierda de reglas de producción que a la derecha tienen una o varias variables que ya están en \textit{V$_t$}. El proceso termina cuando tras una pasada por la gramática no se añade ninguna variable a \textit{V$_t$}. El proceso lo podemos ver a continuación:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lll}
+	Pasada número  1. & V$_t$ = \{\} &  \\
+	Pasada número  2. & V$_t$ = \{S, D, F\} &  \\
+	Pasada número  3. & V$_t$ = \{S, D, F, A, C\} &  \\
+	Pasada número  4. & V$_t$ = \{S, D, F, A, C, B\} &  \\
+	Pasada número  5. & V$_t$ = \{S, D, F, A, C, B\} & $\rightarrow$ Fin del proceso.
+	\end{tabular}
+	\end{table}
+	
+	A continuación, eliminamos las variables que no están en \textit{V$_t$} y las reglas de producción que emplean dichas variables. \textit{V - V$_t$ = \{E\}}. Una vez eliminadas dichas producciones, la gramática que obtenemos es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$B &  A$\rightarrow$aCC & A$\rightarrow$baD \\
+	B$\rightarrow$cBD & B$\rightarrow$$\varepsilon$ & B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD \\
+	D$\rightarrow$a & F$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	A continuación, realizamos una nueva pasada sobre la gramática, esta vez usando tres estructuras: \textit{V$_s$} para almacenar las variables ya procesadas, \textit{J}  para almacenar las variables pendientes de procesar y \textit{T$_s$} para almacenar los símbolos terminales generables desde variables pertenecientes a \textit{V$_s$}. Los pasos a seguir serían:
+	\begin{enumerate}
+		\item Sacamos una variable de \textit{J}.
+		\item Introducimos en \textit{J} las variables que se encuentran a la derecha en reglas de producción donde dicha variable se encuentra a la izquierda.
+		\item Introducimos en \textit{T$_s$} los símbolos terminales que se encuentran a la derecha en reglas de producción donde dicha variable se encuentra a la izquierda.
+		\item Introducimos la variable en \textit{V$_s$}.
+	\end{enumerate}
+	Este proceso se realiza hasta que no haya ninguna variable pendiente de procesar, es decir, \textit{J} esté vacío. El proceso lo podemos ver a continuación:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llll}
+	Pasada número  1. & V$_s$ = \{\} & J = \{S\} & T$_s$ = \{\} \\
+	Pasada número  2. & V$_s$ = \{S\} & J = \{D, C\} & T$_s$ = \{a, b, c\} \\
+	Pasada número  3. & V$_s$ = \{S, D\} & J = \{C\} & T$_s$ = \{a, b, c\} \\
+	Pasada número  4. & V$_s$ = \{S, D, C\} & J = \{B, A\} & T$_s$ = \{a, b, c\} \\
+	Pasada número  5. & V$_s$ = \{S, D, C, B\} & J = \{A\} & T$_s$ = \{a, b, c\} \\
+	Pasada número  6. & V$_s$ = \{S, D, C, B, A\} & J = \{\} & T$_s$ = \{a, b, c\}
+	\end{tabular}
+	\end{table}
+	
+	A continuación, eliminamos las variables que no están en \textit{V$_s$} y las reglas de producción que emplean dichas variables. \textit{V - V$_s$ = \{F\}}. Una vez eliminadas dichas producciones, la gramática que obtenemos es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$B &  A$\rightarrow$aCC & A$\rightarrow$baD \\
+	B$\rightarrow$cBD & B$\rightarrow$$\varepsilon$ & B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD \\
+	D$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	\subsection[Eliminar producciones nulas.]{Eliminar producciones nulas.}
+		
+	Partimos de la gramática obtenida en el paso anterior. Para eliminar las producciones nulas hay que realizar dos pasos; primero identificar las variables anulables de forma directa (A$\rightarrow$$\varepsilon$) y las variables cuyas producciones tengan todas las variables de la derecha anulables. Estas variables las guardamos en la estructura adicional \textit{H}. Este proceso lo realizamos de manera reiterada hasta que, tras una pasada por la gramática, no se añade ninguna variable a \textit{H}. El proceso lo podemos ver a continuación:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lll}
+	Pasada número  1. & H = \{\} &  \\
+	Pasada número  2. & H = \{B\} &  \\
+	Pasada número  3. & H = \{B, A\} &  \\
+	Pasada número  4. & H = \{B, A\} &$\rightarrow$Fin del proceso.
+	\end{tabular}
+	\end{table}
+	
+	Una vez acabado el proceso, eliminamos las reglas de producción que tienen a la izquierda variables que son directamente anulables. La gramática que obtenemos es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$B &  A$\rightarrow$aCC & A$\rightarrow$baD \\
+	B$\rightarrow$cBD & B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD & D$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	En el segundo paso, debemos añadir las producciones necesarias para seguir generando el mismo lenguaje que con la gramática que contenía producciones nulas. La idea es analizar las producciones que tienen a la derecha variables que están en \textit{H} y añadir dicha regla de producción pero modificada para permitir generar el mismo lenguaje. Las reglas a añadir las podemos ver a continuación:
+	\begin{itemize}
+		\item \textit{A$\rightarrow$B} no genera ninguna regla nueva.
+		\item \textit{B$\rightarrow$cBD} genera \textit{B$\rightarrow$cD}.
+		\item \textit{B$\rightarrow$AC} genera \textit{B$\rightarrow$C}.
+		\item \textit{C$\rightarrow$aBA} genera tres reglas; \textit{C$\rightarrow$aB}, \textit{C$\rightarrow$aA} y \textit{C$\rightarrow$a}.
+	\end{itemize}
+	
+	Una vez añadimos dichas reglas de producción, la gramática obtenida es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$B &  A$\rightarrow$aCC & A$\rightarrow$baD \\
+	B$\rightarrow$cBD & B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD & D$\rightarrow$a \\ 
+	B$\rightarrow$cD & B$\rightarrow$C & C$\rightarrow$aB & C$\rightarrow$aA & C$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	\subsection[Eliminar producciones unitarias.]{Eliminar producciones unitarias.}
+	
+	Las producciones unitarias son de la forma A$\rightarrow$B. Lo primero que debemos hacer es añadir a la lista \textit{H} las parejas de variables que forman producciones unitarias. 
+	\begin{displaymath}
+	H = \{(A, B),(B, C)\}
+	\end{displaymath}
+	A continuación, buscamos en \textit{H} dos parejas tal que la segunda variable de la primera pareja sea igual a la primera variable de la segunda pareja y añadimos la primera variable de la primera pareja y la segunda variable de la segunda pareja como una nueva pareja. En este caso, añadiríamos la pareja (A, C).
+	\begin{displaymath}
+	H = \{(A, B),(B, C), (A, C)\}
+	\end{displaymath}
+	Una vez tenemos \textit{H} construido, eliminamos las producciones unitarias. La gramática generada es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$aCC & A$\rightarrow$baD & B$\rightarrow$cBD \\
+	B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD & D$\rightarrow$a & B$\rightarrow$cD \\
+	C$\rightarrow$aB & C$\rightarrow$aA & C$\rightarrow$a \\ 
+	\end{tabular}
+	\end{table}
+	
+	Finalmente, como debemos añadir las reglas necesarias para seguir produciendo el mismo lenguaje tras eliminar las producciones unitarias. Para ello cogemos las parejas de \textit{H} y las producciones que tienen a la izquierda la segunda variable de la pereja. A continuación, en la regla de producción, cambiamos la variable de la izquierda por la primera variable de la pareja elegida y añadimos esta nueva regla. Este proceso lo podemos ver de manera más clara a continuación:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	\multirow{3}{*}{(A, B)} & B$\rightarrow$cBD & A$\rightarrow$cBD \\ \cline{2-3} 
+	 & B$\rightarrow$AC & A$\rightarrow$AC \\ \cline{2-3} 
+	 & B$\rightarrow$cD & A$\rightarrow$cD \\ \hline
+	\multirow{4}{*}{(B, C)} & C$\rightarrow$bD & B$\rightarrow$bD \\ \cline{2-3} 
+	 & C$\rightarrow$aBA & B$\rightarrow$aBA \\ \cline{2-3} 
+	 & C$\rightarrow$aB & B$\rightarrow$aB \\ \cline{2-3} 
+	 & C$\rightarrow$aA & B$\rightarrow$aA \\ \hline
+	\multirow{4}{*}{(A, C)} & C$\rightarrow$bD & A$\rightarrow$bD \\ \cline{2-3} 
+	 & C$\rightarrow$aBA & A$\rightarrow$aBA \\ \cline{2-3} 
+	 & C$\rightarrow$aB & A$\rightarrow$aB \\ \cline{2-3} 
+	 & C$\rightarrow$aA & A$\rightarrow$aA \\ \hline
+	\end{tabular}
+	\end{table}
+	
+	La gramática obtenida es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$bDD & S$\rightarrow$Ca & S$\rightarrow$bc & A$\rightarrow$aCC & A$\rightarrow$baD & B$\rightarrow$cBD \\
+	B$\rightarrow$AC & C$\rightarrow$bD & C$\rightarrow$aBA & D$\rightarrow$CD & D$\rightarrow$a & B$\rightarrow$cD \\
+	C$\rightarrow$aB & C$\rightarrow$aA & C$\rightarrow$a & A$\rightarrow$cBD & A$\rightarrow$AC & A$\rightarrow$cD \\
+	B$\rightarrow$bD & B$\rightarrow$aBA & B$\rightarrow$aB & B$\rightarrow$aA & A$\rightarrow$bD & A$\rightarrow$aBA \\
+	B$\rightarrow$aB & B$\rightarrow$aA \\
+	\end{tabular}
+	\end{table}
+	
+	\subsection[Normalizar la gramática en forma normal de \textit{Chomsky}.]{Normalizar la gramática en forma normal de \textit{Chomsky}.}
+	
+	Las producciones de una gramática en forma normal de \textit{Chomsky} son del estilo A$\rightarrow$BC o A$\rightarrow$a. Lo primero que hacemos, es añadir una variable para cada símbolo terminal, su regla de producción correspondiente y cambiamos la aparición de los símbolos terminales por las nuevas variables en todas las reglas de producción. La nueva gramática es la siguiente:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$T$_b$DD & S$\rightarrow$CT$_a$ & S$\rightarrow$T$_b$T$_c$ & A$\rightarrow$T$_a$CC & A$\rightarrow$T$_b$T$_a$D & B$\rightarrow$T$_c$BD \\
+	B$\rightarrow$AC & C$\rightarrow$T$_b$D & C$\rightarrow$T$_a$BA & D$\rightarrow$CD & D$\rightarrow$T$_a$ & B$\rightarrow$T$_c$D \\
+	C$\rightarrow$T$_a$B & C$\rightarrow$T$_a$A & C$\rightarrow$T$_a$ & A$\rightarrow$T$_c$BD & A$\rightarrow$AC & A$\rightarrow$T$_c$D \\
+	B$\rightarrow$T$_b$D & B$\rightarrow$T$_a$BA & B$\rightarrow$T$_a$B & B$\rightarrow$T$_a$A & A$\rightarrow$T$_b$D & A$\rightarrow$T$_a$BA \\
+	B$\rightarrow$T$_a$B & B$\rightarrow$T$_a$A & T$_a$$\rightarrow$a & T$_b$$\rightarrow$b & T$_c$$\rightarrow$c \\
+	\end{tabular}
+	\end{table}
+	
+	A continuación, debemos eliminar las producciones que no son del estilo A$\rightarrow$BC o A$\rightarrow$a y añadimos las reglas necesarias para poder generar el mismo lenguaje. Las reglas a modificar son las siguientes:
+	\begin{enumerate}
+		\item S$\rightarrow$T$_b$DD la cambiamos por S$\rightarrow$T$_b$X$_1$ y X$_1$$\rightarrow$DD.
+		\item A$\rightarrow$T$_a$CC la cambiamos por A$\rightarrow$T$_a$X$_2$ y X$_2$$\rightarrow$CC.
+		\item A$\rightarrow$T$_b$T$_a$D la cambiamos por A$\rightarrow$T$_b$X$_3$ y X$_3$$\rightarrow$T$_a$D.
+		\item B$\rightarrow$T$_c$BD la cambiamos por B$\rightarrow$T$_c$X$_4$ y X$_4$$\rightarrow$BD.
+		\item C$\rightarrow$T$_a$BA la cambiamos por C$\rightarrow$T$_a$X$_5$ y X$_5$$\rightarrow$BA.
+		\item A$\rightarrow$T$_c$BD la cambiamos por A$\rightarrow$T$_c$X$_4$.
+		\item B$\rightarrow$T$_a$BA la cambiamos por B$\rightarrow$T$_a$X$_5$.
+		\item A$\rightarrow$T$_a$BA la cambiamos por A$\rightarrow$T$_a$X$_5$.
+	\end{enumerate}
+	
+	Finalmente, la gramática original en forma normal de \textit{Chomsky} es la que podemos ver a continuación:
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{llllll}
+	S$\rightarrow$CT$_a$ & S$\rightarrow$T$_b$T$_c$ & B$\rightarrow$AC & C$\rightarrow$T$_b$D & D$\rightarrow$CD & D$\rightarrow$T$_a$ \\
+	B$\rightarrow$T$_c$D & C$\rightarrow$T$_a$B & C$\rightarrow$T$_a$A & C$\rightarrow$T$_a$ & A$\rightarrow$AC & A$\rightarrow$T$_c$D \\
+	B$\rightarrow$T$_b$D & B$\rightarrow$T$_a$B & B$\rightarrow$T$_a$A & A$\rightarrow$T$_b$D & B$\rightarrow$T$_a$B & B$\rightarrow$T$_a$A \\
+	T$_a$$\rightarrow$a & T$_b$$\rightarrow$b & T$_c$$\rightarrow$c & S$\rightarrow$T$_b$X$_1$ & X$_1$$\rightarrow$DD & A$\rightarrow$T$_a$X$_2$ \\ X$_2$$\rightarrow$CC & A$\rightarrow$T$_b$X$_3$ & X$_3$$\rightarrow$T$_a$D & B$\rightarrow$T$_c$X$_4$ & C$\rightarrow$T$_a$X$_5$ & X$_5$$\rightarrow$BA \\ A$\rightarrow$T$_c$X$_4$ & B$\rightarrow$T$_a$X$_5$ & A$\rightarrow$T$_a$X$_5$\\
+	\end{tabular}
+	\end{table}
+	
+	\chapter[Práctica 7: Obtener una gramática a partir de un autómata con pila.]{Práctica 7: Obtener una gramática a partir de un autómata con pila.}
+	
+	\section[Enunciado.]{Enunciado.}
+	
+	Obtener la gramática que genera las cadenas que acepta el autómata que podemos ver a continuación. El autómata acepta cadenas que tienen igual número de 0 que de 1. El autómata es el siguiente: \\
+	
+	$\hspace*{2.2cm}M=(\{q_1\},\{0,1\},\{R,X,Y\},\delta,q_1,R,\emptyset)$
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{ll}
+	$\delta (q_1,0,R) = \{(q_1,XR)\}$ & $\delta (q_1,0,X) = \{(q_1,XX)\}$ \\
+	$\delta (q_1,1,R) = \{(q_1,YR)\}$ & $\delta (q_1,1,Y) = \{(q_1,YY)\}$ \\
+	$\delta (q_1,1,X) = \{(q_1,\epsilon)\}$ & $\delta (q_1,0,Y) = \{(q_1,\epsilon)\}$ \\
+	$\delta (q_1,\epsilon,R) = \{(q_1,\epsilon)\}$ & \\
+	\end{tabular}
+	\end{table}
+	
+	\section[Solución.]{Solución.}
+	
+	Lo primero que hacemos es añadir una nueva regla por cada estado. Esta regla sería $S\rightarrow[q_1,Z_0,q_1]$. A continuación añadimos las reglas que simulan las transiciones del autómata que no meten nada en la pila. Estás reglas son:
+	\begin{itemize}
+		\item Para $\delta (q_1,1,X) = \{(q_1,\epsilon)\}$ añadimos $[q_1,X,q_1]\rightarrow1$
+		\item Para $\delta (q_1,0,Y) = \{(q_1,\epsilon)\}$ añadimos $[q_1,Y,q_1]\rightarrow0$
+		\item Para $\delta (q_1,\epsilon,R) = \{(q_1,\epsilon)\}$ añadimos $[q_1,R,q_1]\rightarrow\epsilon$
+	\end{itemize}
+	
+	Finalmente añadimos las reglas de producción que simulan las transiciones del autómata que si introducen elementos en la pila. Estas reglas son: 
+	\begin{itemize}
+		\item Para $\delta (q_1,0,R) = \{(q_1,XR)\}$ añadimos $[q_1,R,q_1]\rightarrow0[q_1,X,q_1][q_1,R,q_1]$
+		\item Para $\delta (q_1,0,X) = \{(q_1,XX)\}$ añadimos $[q_1,X,q_1]\rightarrow0[q_1,X,q_1][q_1,X,q_1]$
+		\item Para $\delta (q_1,1,R) = \{(q_1,YR)\}$ añadimos $[q_1,R,q_1]\rightarrow1[q_1,Y,q_1][q_1,R,q_1]$
+		\item Para $\delta (q_1,1,Y) = \{(q_1,YY)\}$ añadimos $[q_1,Y,q_1]\rightarrow1[q_1,Y,q_1][q_1,Y,q_1]$
+	\end{itemize}
+	
+	La gramática obtenida es la siguiente: 
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{ll}
+	$[q_1,R,q_1]\rightarrow0[q_1,X,q_1][q_1,R,q_1]$ & $[q_1,X,q_1]\rightarrow0[q_1,X,q_1][q_1,X,q_1]$ \\
+	$[q_1,R,q_1]\rightarrow1[q_1,Y,q_1][q_1,R,q_1]$ & $[q_1,Y,q_1]\rightarrow1[q_1,Y,q_1][q_1,Y,q_1]$ \\
+	$[q_1,X,q_1]\rightarrow 1$ & $[q_1,Y,q_1]\rightarrow0$ \\
+	$[q_1,R,q_1]\rightarrow\varepsilon$ \\
+	\end{tabular}
+	\end{table}	
+\end{document}
