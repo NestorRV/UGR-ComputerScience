@@ -1,0 +1,3 @@
+SHELL=/bin/sh
+PATH=/home/nestor16/:/home/nestor16/SO:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+* * * * * ./reducelista

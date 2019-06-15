@@ -1,0 +1,116 @@
+Néstor Rodríguez Vico. 75573052C. nrv23@correo.ugr.es		2º A2
+
+Ejercicio 1:
+a) Para crear un usuario usamos la orden: useradd usuario_examen
+El directorio home por defecto es /home. Se puede averiguar viendo el archivo /etc/default/useradd.
+Para ello usamos el siguiente comando: cat /etc/default/useradd
+b) Comando: chage -E 30 usuario_examen
+
+Ejercicio 2:
+a) Para crear dicho archivo especial de dispositivo de bloques usamos las siguientes ordenes:
+mknod /dev/loop0 b 7 0
+dd if=/dev/zero of=/root/archivo_SA10 bs=1k count=10000
+losetup /dev/loop0 /root/archivo_SA10
+
+Una vez creado, la informacion que devuelve fdisk es:
+(obtenido mediante la orden: fdisk -l /dev/loop0)
+
+Disk /dev/loop0: 10 MB, 10240000 bytes
+255 heads, 63 sectors/track, 1 cylinders, total 20000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+Disk /dev/loop0 doesn't contain a valid partition table
+b) Para crear dicho sistema de archivos usamos la orden: mke2fs -t ext3 /dev/loop0
+El resultado obtenido es:
+mke2fs 1.41.12 (17-May-2010)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+2512 inodes, 10000 blocks
+500 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=10485760
+2 block groups
+8192 blocks per group, 8192 fragments per group
+1256 inodes per group
+Superblock backups stored on blocks: 
+	8193
+
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: 
+done
+
+This filesystem will be automatically checked every 20 mounts or
+180 days, whichever comes first.  Use tune2fs -c or -i to override.
+
+Tamaño de bloque lógico que usa: Block size=1024 (log=0)
+Numero de i-nodos: 1256 inodos por grupo
+Numero de bloques: 8192 bloques por grupo
+Número máximo de montajes sin ejecutar e2fsck: 20 montajes
+
+c) Si un paquete necesita dependencias, debemos instalar las dependencias necesarias
+y a continuación instalar nuestro paquete correctamente.
+
+Ejercicio 3:
+a) Para saber la prioridad, ejecutamos primero nuestro script, ./prueba_procesos en mi caso.
+Así tenemos el PID de nuestro proceso, 3708 en mi caso.
+Una vez sabemos el proceso, usamos la orden top para ver la prioridad, el resultado es:
+ PID USUARIO   PR  NI    VIRT    RES    SHR S  %CPU %MEM     HORA+ ORDEN      
+ 3708 nestor16  20   0   16660   3068   2840 R  97,4  0,0   0:31.38 prueba_pro+   
+    1 root      20   0  182496   5152   3620 S   0,0  0,1   0:01.72 systemd    
+    2 root      20   0       0      0      0 S   0,0  0,0   0:00.00 kthreadd   
+    3 root      20   0       0      0      0 S   0,0  0,0   0:00.00 ksoftirqd/0
+    5 root       0 -20       0      0      0 S   0,0  0,0   0:00.00 kworker/0:+
+    7 root      20   0       0      0      0 S   0,0  0,0   0:03.59 rcu_sched  
+    8 root      20   0       0      0      0 S   0,0  0,0   0:00.00 rcu_bh     
+    9 root      20   0       0      0      0 S   0,0  0,0   0:02.13 rcuos/0    
+   10 root      20   0       0      0      0 S   0,0  0,0   0:00.00 rcuob/0    
+   11 root      rt   0       0      0      0 S   0,0  0,0   0:00.00 migration/0
+   12 root      rt   0       0      0      0 S   0,0  0,0   0:00.01 watchdog/0 
+   13 root      rt   0       0      0      0 S   0,0  0,0   0:00.01 watchdog/1 
+
+Como podemos ver en la columna NI, la prioridad de nuestro proceso es 0 (priumera linea)
+
+b) Mediante la orden ls -lai.
+Para crear un enlace duro usamos la ordean: ln. Por ejemplo: ln scriptUML hardLink
+Ahora ejecutamos la orden ls -lai y el resultado es:
+14417932 drwxr-xr-x  4 nestor16 nestor16       4096 oct 27 12:16 .
+14417921 drwxr-xr-x 34 nestor16 nestor16       4096 oct 27 11:36 ..
+14418249 -rw-rw-r--  1 nestor16 nestor16       2129 oct 27 12:03 Examen
+14418221 -rw-rw-r--  1 nestor16 nestor16       2165 oct 27 12:03 Examen~
+14422674 -rw-rw-r--  1 nestor16 nestor16 1073741824 oct 27 12:11 Fedora14-x86-root_fs
+14419322 -rwxr-xr-x  2 nestor16 nestor16         68 oct 27 11:13 hardLink
+14421738 -rwxr-xr-x  1 nestor16 nestor16   83814586 sep 24 15:13 kernel32-3.0.4
+14550836 drwxr-xr-x  2 nestor16 nestor16       4096 oct 27  2011 paquetes_SO
+14419400 -rwxrwxr-x  1 nestor16 nestor16        279 oct 27 12:15 script_examen
+14419397 -rwxrwxr-x  1 nestor16 nestor16        278 oct 27 12:15 script_examen~
+14419322 -rwxr-xr-x  2 nestor16 nestor16         68 oct 27 11:13 scriptUML
+14422055 -rw-r--r--  1 nestor16 nestor16        145 sep 29 12:47 scriptUML~
+
+Donde podemos ver nuestro enlace duro.
+c) El script es:
+#!/bin/bash
+
+if [ $# != 1 ]; then echo Debes pasar un directorio.
+exit; fi
+
+comprobar_archivo=`test -d $1 && echo "true" || echo "false"`
+
+if [ $comprobar_archivo == "false" ]; then echo "El primer argumento no es un directorio o es un directorio que no existe."
+exit; else
+tamanio_aux=`du -ks --block-size=2K $1 | cut -f1`
+echo $tamanio_aux;fi 
+
+El resultado para mi directorio /home por ejemplo es:
+./script_2k /home
+2496998
+d) Mi cronfile sería:
+0	13	*	*	*	.$HOME/Escritorio/script_2K /home >> $HOME/Escritorio/log.txt
+
+NOTA: Se crea el archivo log.txt pero se crea vacío, el echo del tamaño del script no se redirecciona correctamente a log.txt

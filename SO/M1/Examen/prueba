@@ -1,0 +1,10 @@
+[?1h=[?25l[H[2J(B[mtop - 12:34:56 up 58 min,  3 users,  load average: 1,17, 1,16, 1,00(B[m[39;49m(B[m[39;49m[K
+Tareas:(B[m[39;49m[1m 230 (B[m[39;49mtotal,(B[m[39;49m[1m   2 (B[m[39;49mejecutar, (B[m[39;49m[1m 218 (B[m[39;49mhibernar, (B[m[39;49m[1m   1 (B[m[39;49mdetener, (B[m[39;49m[1m   0 (B[m[39;49mzombie(B[m[39;49m(B[m[39;49m[K
+%Cpu(s):(B[m[39;49m[1m  7,6 (B[m[39;49musuario,(B[m[39;49m[1m  6,6 (B[m[39;49msist,(B[m[39;49m[1m  0,0 (B[m[39;49madecuado,(B[m[39;49m[1m 83,5 (B[m[39;49minact,(B[m[39;49m[1m  2,2 (B[m[39;49men espera,(B[m[39;49m[1m  0,0 (B[m[39;49mhardw int,(B[m[39;49m[1m  0,0 (B[m[39;49msoftw(B[m[39;49m(B[m[39;49m[K
+KiB Mem: (B[m[39;49m[1m  8053044 (B[m[39;49mtotal,(B[m[39;49m[1m  1972340 (B[m[39;49mused,(B[m[39;49m[1m  6080704 (B[m[39;49mfree,(B[m[39;49m[1m    90260 (B[m[39;49mbuffers(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m  2097148 (B[m[39;49mtotal,(B[m[39;49m[1m        0 (B[m[39;49mused,(B[m[39;49m[1m  2097148 (B[m[39;49mfree.(B[m[39;49m[1m  1091520 (B[m[39;49mcached Mem(B[m[39;49m(B[m[39;49m[K
+[K
+[7m  PID USUARIO   PR  NI    VIRT    RES    SHR S  %CPU %MEM     HORA+ ORDEN                              (B[m[39;49m[K
+(B[m[1m 2960 nestor16   0 -20   16724   3080   2848 R  91,4  0,0  29:27.72 prueba_procesos                    (B[m[39;49m[K
+(B[m    7 root      20   0       0      0      0 S   6,5  0,0   0:03.49 rcu_sched                          (B[m[39;49m[K
+(B[m   18 root      20   0       0      0      0 S   6,5  0,0   0:01.21 rcuos/1                            (B[m[39;49m[K

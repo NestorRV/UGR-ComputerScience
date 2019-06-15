@@ -1,0 +1,20 @@
+[?1h=[?25l[H[2J(B[mtop - 12:36:57 up  1:00,  2 users,  load average: 0,68, 0,94, 0,93(B[m[39;49m(B[m[39;49m[K
+Tareas:(B[m[39;49m[1m 210 (B[m[39;49mtotal,(B[m[39;49m[1m   2 (B[m[39;49mejecutar, (B[m[39;49m[1m 208 (B[m[39;49mhibernar, (B[m[39;49m[1m   0 (B[m[39;49mdetener, (B[m[39;49m[1m   0 (B[m[39;49mzombie(B[m[39;49m(B[m[39;49m[K
+%Cpu(s):(B[m[39;49m[1m  7,6 (B[m[39;49musuario,(B[m[39;49m[1m  6,6 (B[m[39;49msist,(B[m[39;49m[1m  0,0 (B[m[39;49madecuado,(B[m[39;49m[1m 83,6 (B[m[39;49minact,(B[m[39;49m[1m  2,1 (B[m[39;49men espera,(B[m[39;49m[1m  0,(B[m[39;49m(B[m[39;49m[K
+KiB Mem: (B[m[39;49m[1m  8053044 (B[m[39;49mtotal,(B[m[39;49m[1m  1903004 (B[m[39;49mused,(B[m[39;49m[1m  6150040 (B[m[39;49mfree,(B[m[39;49m[1m    90496 (B[m[39;49mbuffers(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m  2097148 (B[m[39;49mtotal,(B[m[39;49m[1m        0 (B[m[39;49mused,(B[m[39;49m[1m  2097148 (B[m[39;49mfree.(B[m[39;49m[1m  1037556 (B[m[39;49mcached Mem(B[m[39;49m(B[m[39;49m[K
+[K
+[7m  PID USUARIO   PR  NI    VIRT    RES    SHR S  %CPU %MEM     HORA+ ORDEN       (B[m[39;49m[K
+(B[m[1m 3708 nestor16  20   0   16660   3068   2840 R  97,4  0,0   0:31.38 prueba_pro+ (B[m[39;49m[K
+(B[m 1654 nestor16  20   0 2996328 131540  52860 S  13,0  1,6   0:05.18 dropbox     (B[m[39;49m[K
+(B[m    1 root      20   0  182496   5152   3620 S   0,0  0,1   0:01.72 systemd     (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0,0  0,0   0:00.00 kthreadd    (B[m[39;49m[K
+(B[m    3 root      20   0       0      0      0 S   0,0  0,0   0:00.00 ksoftirqd/0 (B[m[39;49m[K
+(B[m    5 root       0 -20       0      0      0 S   0,0  0,0   0:00.00 kworker/0:+ (B[m[39;49m[K
+(B[m    7 root      20   0       0      0      0 S   0,0  0,0   0:03.59 rcu_sched   (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0,0  0,0   0:00.00 rcu_bh      (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0,0  0,0   0:02.13 rcuos/0     (B[m[39;49m[K
+(B[m   10 root      20   0       0      0      0 S   0,0  0,0   0:00.00 rcuob/0     (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0,0  0,0   0:00.00 migration/0 (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0,0  0,0   0:00.01 watchdog/0  (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0,0  0,0   0:00.01 watchdog/1  (B[m[39;49m[K

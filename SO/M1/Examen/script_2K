@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then echo Debes pasar un directorio.
+exit; fi
+
+comprobar_archivo=`test -d $1 && echo "true" || echo "false"`
+
+if [ $comprobar_archivo == "false" ]; then echo "El primer argumento no es un directorio o es un directorio que no existe."
+exit; else
+tamanio_aux=`du -ks --block-size=2K $1 | cut -f1`
+echo $tamanio_aux;fi 

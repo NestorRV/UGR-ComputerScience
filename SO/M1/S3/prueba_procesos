@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then echo Debes pasar el numero de iteraciones.
+exit; fi
+
+contador=0
+
+for (( i=0; i<$1; i++ )); do
+let aritmetica=10*10+23
+let contador=contador+1
+done
+
+echo el valor de la variable es  $contador

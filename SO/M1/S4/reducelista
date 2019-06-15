@@ -1,0 +1,4 @@
+#!/bin/bash
+head modificados > aux.txt
+aux.txt > modificados
+rm /home/nestor16/aux.txt
