@@ -1,0 +1,302 @@
+﻿/*! \mainpage  City of Chicago Crime DataSet
+ *
+\version v0
+\author  Juan F. Huete
+
+\tableofcontents
+\section NOTA NOTA IMPORTANTE
+Esta práctica es individual, por lo que el alumno debe incluir una nota en la misma indicando que no ha utilizado material de otros compañeros o compañeras para su resolución.
+  \section intro_sec Introducción
+  La ciudad de Chicago, en un intento de hacer un más flexible el acceso a los datos sobre delitos cometidos ha decidido replantearse un nuevo diseño del sistema de información que encargó a los alumnos en prácticas de la Universidad. Además de flexibilizar el acceso a los datos, otra de los requisitos que impone en el pliego de condiciones es que el acceso sea lo más eficiente posible. Este es un aspecto importante para el departamento ya que se esperan un alto número de consultas al sistema y este debe ser capaz de gestionarlas. 
+
+Se debe diseñar un nuevo tipo de dato que llamaremos CSS, acrónimo de  Crime Search System, que tiene que cumplir los siguientes requisitos:
+
+\li  Permitir un acceso eficiente a los delitos por ID.
+
+\li Permitir consultas por rango de fechas,  por ejemplo se puede querer encontrar los delitos cometidos entre el 10 de Febrero de 2015 y el 30 de Marzo de 2015.
+
+\li Consultar por IUCR (Illinois Unifor Crime Reporting), código del crimen del estado de Illinois que permite representar la tipología del delito.  Este es un campo de tipo String, para el que es importante considerar el orden entre los elementos. El orden que se considerará para la comparación de IUCR será el lexicográfico.  Así, por ejemplo, todos los crímenes comprendidos con código en el rango [261,300] representan “CRIM SEXUAL ASSAULT”, la diferencia radica en la descripción secundaria del delito. Por ejemplo
+
+\li IUCR 261 =  “CRIM SEXUAL ASSAULT”; AGGRAVATED: HANDGUN
+\li IUCR 266 = “CRIM SEXUAL ASSAULT”; PREDATORY
+
+Una lista de la descripción del IUCR la podemos encontrar en 
+
+https://data.cityofchicago.org/Public-Safety/Chicago-Police-Department-Illinois-Uniform-Crime-R/c7ck-438e
+
+\li La novedad más importante será que se permite la consulta considerando la descripción del crimen, así un ciudadano podrá consultar por términos aislados en la descripción, por ejemplo podría consultar por “BATTERY ASSAULT  HANDGUN” y tendría como salida una secuencia ordenada de los delitos que contengan al menos  una de estas palabras, de forma que cuanto mayor sea el número de palabras que aparecen en la descripción,  mejor será la posición del delito en el orden (ocupará las primeras posiciones del mismo). 
+Con la idea de facilitar las tareas de búsqueda, el usuario podrá indicar cuantos delitos desea que le sean retornados. 
+Obviamente, el acceso a los datos se debe hacer lo más rápidamente posible pues el éxito del sistema depende en gran medida de esta consulta con texto libre que se pondrá a disposición del ciudadano.
+Para conseguir una mayor flexibilidad y potencia de las búsquedas, el departamento ha decidido que las búsquedas por términos tengan en cuenta los siguientes campos de la base de datos: Primary Type, Description y Location Description. 
+
+\li Se debe poder acceder de forma eficiente a los crímenes que han ocurrido en una determinada posición geográfica, determinada por un cuadrilátero que viene determinados por las coordenadas de longitud y latitud de los vértices superior izquierda e inferior derecha del mismo. 
+
+\li Dado el elevado número de delitos en la base de datos (más de 6 millones), se debe evitar duplicar la información de la base de datos, esto es, NO podemos crear distintos tipos de datos donde en cada uno de ellos se almacene un crimen completo, sino que la descripción completa del crimen se almacenará una única vez y habrá estructuras adicionales que nos faciliten alcanzar los objetivos planteados.
+
+\li Se debe dotar de la capacidad de iterar sobre los crímenes, tanto por ID como por IUCR y fecha.
+
+
+\li Finalmente, se desea poder disponer del sistema funcionando antes de Navidad del 2015, por lo que deberá estar entregada la solución el día 21 de diciembre de 2015 a las 23:59 
+
+\section TDA Tipo de dato CrimeSearch
+La empresa de nueva creación EDGRX, ubicada en Granada, decide presentar su propuesta al departamento de policía. Para ello diseñan el tipo de dato CSS (CrimeSearchSystem), 
+
+\subsection publico Parte Pública
+
+En la parte pública podemos distinguir tres tipos de datos:
+
+\li iterator que nos permite iterar por los delitos en orden creciente de ID
+\li Date_iterator que nos permite iterar por los delitos en orden creciente de fecha, del más antiguo al más reciente.
+\li IUCR_iterator que nos permite iterar según el valor del IUCR
+
+Además, y entre otros métodos que sean de interés, se ofrecen los siguientes 
+
+\code
+    void load(String nombreDB);
+    void insert( const crimen & x);
+    void erase( unsigned int ID);
+    iterator find_ID(const unsigned int ID);
+    void setArrest(const unsigned int ID, bool value);
+
+    vector<pair<ID,float> Query(list<string & q, int k);    
+    list<ID> inArea(Longitud x1, Latitud y1, Longitud x2, Latitud y2 );
+    
+    /* Métodos relacionados con los iteradores */
+    IUCR_iterator ibegin();
+    IUCR_iterator iend();
+    IUCR_iterator lower_bound(IUCR);
+    IUCR_iterator upper_bound(IUCR);
+
+    Date_iterator dbegin();
+    Date_iterator dend();
+    Date_iterator lower_bound(Fecha);
+    Date_iterator upper_bound(Fecha);
+
+    iterator begin();
+    iterator end();
+\endcode
+
+Los pasamos a ver con más detenimiento
+
+\li void load(String nombreDB);
+
+Se encarga de leer los elementos de un fichero dado por el argumento nombreDB, e insertar toda la información en la base de datos. Recordad que para esta práctica se os pide que extendáis el campo descripción a todas las descripciones que se encuentra en la base de datos. Pare ello será necesario modificar la clase crimen utilizada en la práctica anterior.
+
+\li    void insert( const crimen & x);
+
+Este método se encarga de insertar un nuevo crimen en CSS. Como prerrequisito se asume que el crimen no está ya almacenado en el conjunto.
+s
+\li   bool  erase( unsigned int ID);
+
+En este caso, se trata de borrar un crimen de la base de datos dado su ID. Devuelve verdadero si el crimen ha sido borrado correctamente, falso en caso contrario.
+
+ No sólo borra el crimen del repositorio principal de datos en CSS sino que además se encarga de borrar toda referencia a dicho crimen dentro de él.
+
+\li  iterator find (const unsigned int ID);
+
+Busca el crimen con identificador ID dentro de CSS, si no lo encuentra devuelve end()
+
+\li  void setArrest(const unsigned int ID, bool value);
+
+Modifica el campo arrest de un crimen identificado por ID. Será necesario cuando se detenga un criminal con posterioridad a la inserción del delito en CSS.
+
+\li    vector<pair<ID,float> > Query(list<string> & q, int k);    
+Dada una consulta, expresada mediante un conjunto de términos en q, el sistema devuelve un vector ordenado con los k mejores ID (aquellos con mayor peso, definido como el número de términos de q que están en la descripción del delito), con sus respectivos pesos. 
+
+Cómo implementar esta función se explica en la sección “Consulta Libre” de este documento.
+
+\li  list<ID> inArea(Longitud x1, Latitud y1, Longitud x2, Latitud y2 );
+
+Dada dos coordenadas geográficas, x e y, donde se asume que x1 < x2 e y1 > y2, nos devuelve la lista de ID que representan delitos que han sido cometidos dentro del área geográfica delimitada por las coordenadas.
+
+\li IUCR_iterator lower_bound(IUCR i);
+\li IUCR_iterator upper_bound(IUCR d);
+\li Date_iterator lower_bound(Fecha i);
+\li Date_iterator upper_bound(Fecha d);
+
+Son métodos que permiten hacer la búsqueda por rango tanto considerando el IUCR como la Fecha del delito. El comportamiento es similar, lower_bound devuelve el iterador que apunta primer delito con IUCR(Fecha) mayor o igual a i, mientras que upper_bound devuelve el primer delito con IUCR(fecha) estrictamente mayor que d. 
+
+\li IUCR_iterator ibegin();
+\li    Date_iterator dbegin();
+\li    iterator begin();
+
+Devuelve el iterador correspondiente al primer delito que se encuentra según el criterio que sobre el que se itera.
+
+\li    IUCR_iterator iend();
+\li    Date_iterator dend();
+\li     iterator end();
+
+Devuelve el iterador que apunta al elemento siguiente al último delito en CSS según el criterio sobre el que se está itera.
+
+
+
+\subsection privado Parte privada 
+
+En este caso hablaremos de los atributos que se han escogido para representar la información.
+
+\code
+
+typedef float Longitud;
+typedef float Latitud;
+typedef unsigned int ID;
+typedef string Termino;
+typedef string IUCR;
+
+class CSS{
+private:
+    map<ID,Crimen> baseDatos; 
+
+    multimap<Date, map<ID,Crimen>::iterator > > DateAccess;
+
+    map<IUCR,set<ID> > IUCRAccess;
+
+    unordered_map<Termino, set<ID> > index;
+    
+    map<Longitud,multimap<latitud, ID> > posicionGeo;
+
+};
+\endcode
+
+  Pasamos a detallar cada uno de ellos
+
+\li map<ID,Crimen> baseDatos; 
+
+Los distintos delitos se almacenan por orden creciente de ID en un diccionario (map), que llamaremos baseDatos,  donde la clave será el ID (ya que asumimos que no hay dos delitos con el mismo valor de ID), y en la descripción tenemos almacenada toda la información relativa al crimen.
+
+Es importante destacar que la inserción y borrado de elementos en el map no invalida los iteradores. Esto nos facilitará las labores de implementación de los métodos. 
+
+  \li  multimap<Date, map<ID,Crimen>::iterator > > DateAccess;
+
+Esta estructura se utilizará para permitir un acceso eficiente por fecha. Como es importante la secuencia cronológica, consideraremos un contenedor asociativo. Además, como puede haber más de un crimen en la misma fecha hemos seleccionado como estructura el multimap. En el campo definición solamente almacenamos un iterador que apunta a la dirección del map donde se encuentra el elemento. 
+
+Cuando un nuevo crimen se inserta en   baseDatos debemos de insertar la posición en la que se insertó en el multimap y en el caso de borrarlo de la base de datos, también debe ser borrado del multimap.
+
+ \li   map<IUCR,set<ID> > IUCRAccess;
+
+Esta estructura se utiliza para facilitar el acceso por IUCR, en este caso para cada IUCR tenemos el conjunto de delitos, representados por su ID, que han sido clasificados mediante dicho código. Utilizamos un map por ser importante el orden de los delitos dentro del conjunto.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito. 
+
+
+\li    unordered_map<Termino, set<ID> > index;
+
+En este caso, para cada termino en la descripción de un delito almacenamos en un conjunto ordenado los IDs de los delitos que han sido descritos mediante dicho termino.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito. 
+    
+\li map<Longitud,multimap<Latitud, ID> > posicionGeo;
+
+En este caso la posición geográfica la almacenamos en una estructura ordenada donde la clave, que asumimos única, se corresponde con la longitud donde se produce el delito. En este caso, los delitos están ordenados en orden creciente por este valor de coordenada. Para cada una de ellas almacenamos las coordenadas de latitud donde se cometió el delito. Como para una misma coordenada x,y  puede haber más de un delito en el tiempo, se considera una estructura de multimap.
+
+Esta estructura se actualiza cada vez que se inserta o borra un nuevo delito. 
+
+\section iterando Iterando sobre CSS
+Se han definido distintos criterios para poder iterar sobre un CSS. Como se ha visto, para cada criterio guardamos una estructura que de forma eficiente me permite avanzar por los delitos siguiendo el orden establecido. 
+
+
+ Pasamos a ver cuál sería la representación interna que se propone para cada uno de ellos.
+\code
+
+class CSS {
+public:
+
+
+    class iterator {
+    private:
+        /* @brief it  itera sobre los ID del map 
+      */
+        map<ID,Crimen>::iterator it;
+    public:
+           pair<const ID, Crimen > & operator*();   
+    
+    };
+    class IUCR_iterator {
+    private:
+      /* @brief it_m itera sobre los IUCR del map 
+      */
+      map<IUCR,set<ID> >::iterator it_m; 
+	/* @brief it_s itera sobre los ID del set 
+      */
+      set<ID>::iterator it_s;
+    public: 
+        pair<const ID, Crimen > & operator*();
+
+     };
+    class Date_iterator {
+private:
+         multimap<Date, map<ID,Crimen>::iterator > >::iterator it_mm;
+      public:
+        pair<const ID, Crimen > & operator*();
+    
+     };
+
+\endcode
+
+
+\subsection métodosIt Algunos Métodos sobre iteradores
+
+En general los métodos sobre iteradores son sencillos de implementar, sólo hay que envolver los iteradores primitivos (sobre map o multimap) con el paraguas de la clase CSS. Sin embargo, hay algunas distinciones que se deberían hacer a la hora de abordar su implementación.
+
+\li Operador de derefernciación, operator*().
+
+En este caso, el valor devuelto por el operador * de todos los iteradores es pair<const ID,Crimen> &
+
+\code
+            pair<const ID, Crimen > &  operator*();   
+\endcode
+
+Notar el const ID, dentro del primer campo del pair.  Esto se hace para evitar que se pueda modificar dicha clave desde fuera de CSS. Los valores de la definición si se pueden modificar. Asumimos que el usuario no modificará el ID de la definición del crimen, para no permitir que un crimen tuviese distintos valores de ID en la clave y en la definición. Lo ideal sería que no estuviese el ID dentro del crimen.
+
+El el caso del iterator, y también Date_iterator su implementación es simple, sólo tenemos que devolver el pair que se accede directamente de it o bien accediendo al elemento que esta en la posición second del it_mm
+
+Sin embargo, para el IUCR iterator  que  internamente   tiene dos atributos: el primero que itera sobre el map y el segundo que itera sobre el set. Este segundo atributo es que realmente hace referencia al ID del delito concreto al que apunta el iterador. Por tanto, para obtener el pair que debemos devolver sólo debemos de coger el ID apuntado por it_s, esto es, *it_s y buscar el crimen con ese ID en el map, por ejemplo haciendo baseDatos.find(*it_s) 
+
+\li IUCR_iterator & operator++();
+
+La implementación requiere avanzar al siguiente delito en el orden correcto, para ello es suficiente con avanzar el it_s hasta que se alcance el final del set, en cuyo caso debemos avanzar it_m al siguiente IUCR del map, y posicionarnos en lo que sería el primer elemento de su set correspondiente, si existe.
+
+\section consulta Consulta Libre
+Veamos cómo implementar el siguiente método de forma eficiente
+\code
+  vector<pair<ID,float> > Query(list<string> & q, int k);   
+\endcode
+
+Para ello utilizaremos la estructura index que está en el CSS. Esta estructura es un unorderd_map, que para cada término tiene el conjunto de ID para los que dicho término forma parte de la descripción.
+\code
+    unordered_map<Termino, set<ID> > index;
+\endcode
+
+Así podemos distinguir tres casos:
+
+\li 1) Si la lista tiene un único termino, buscamos el término en el index y devolvemos una lista con todos los ID del conjunto asocidado, con el valor second del par a 1.0; 
+\li 2) Si la lista tiene dos términos, debemos hacer una unión de las dos listas de IDs asociadas a los términos, pero en el caso en que exista un ID que esté en ambos conjuntos (los dos términos están en la descripción del ID), debemos contar su peso como 2, en caso contrario como los IDs pertenecen sólo a una lista y por tanto su peso será 1. En este proceso se puede aprovechar que los conjuntos están ordenados en orden creciente de ID. Para ello, podemos diseñar un método privado de la clase CSS con el siguiente prototipo
+
+\code 
+   map<ID,float> unionPeso( const set<ID> & t1, const set<ID> &t2); 
+\endcode
+
+\li 3) Más de dos términos.
+
+En este caso, podemos utilizar el método anterior para hacer la unión de las dos primeras listas de ID, y utilizar el siguiente método para ir actualizando en el map la información asociada al resto de términos de la consulta
+\code
+    void unionPeso( map<ID,float> & m, set<ID> & t_i);
+\endcode
+
+Así podemos hacer algo como
+\code
+ Para cada termino t_i de la consulta, con i = 3, 4, …
+    Obtener el set<ID> asociado a t_i, s_i
+    unionPeso(mi_map, s_i)
+\endcode
+
+\subsection ordenar Selección de los k mejores elementos
+
+Al finalizar el proceso anterior, tenemos en el map los ID con su peso asociado, el paso final sería ordenar estos elementos por el valor del peso.  Dado que el conjunto de crímenes es del orden de 6 millones de registros podemos esperar que el conjunto de elementos a ordenar será muy grande, del orden de decenas de miles. Sin embargo, nosotros sólo necesitamos seleccionar los k (por ejemplo, 50 elementos con mayor peso). 
+
+Para hacer este proceso eficiente se debe utilizar una priority_queue, donde se insertarán elementos de forma que el que tenga menor peso esté en el tope de la cola. Esta cola nunca tendrá un tamaño mayor que k. 
+
+Recorreremos el map resultante de la etapa anterior e insertaremos los primeros k elementos. Para el resto de elementos, iteramos sobre ellos y comprobaremos si el peso del elemento apuntado por el iterador, it,  es mayor que el elemento que está en el tope. De ser cierto, se sacará este elemento de la cola y se sustituirá por el elemento apuntado por it. En caso contrario lo podemos descartar pues estamos seguros que dicho delito no estará entre los k primeros.
+
+
+*/
+
