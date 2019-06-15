@@ -1,0 +1,67 @@
+
+	double PodaAlfaBeta(const Environment & T, int jugador, int profundidad, double alpha, double beta,
+	                    Environment::ActionType & accion, bool maxORmin, double & numNodos) {
+	   si T es terminal o profundidad = 0
+	      numNodos++
+	      devolver el valor heurístico de T
+
+	   int ultacc = -1;
+	   Environment::ActionType acc_ant;
+	   double valor;
+	   Environment hijo = T.GenerateNextMove(ultacc);
+
+	   si maxORmin { (* Soy jugador MAX *)
+	      para cada hijo de T {
+	         valor = PodaAlfaBeta(hijo, jugador, profundidad - 1, alpha, beta, acc_ant, false, numNodos);
+	         if (valor > alpha){
+	            alpha = valor;
+	            accion = static_cast <Environment::ActionType > (ultacc);
+	         }
+	         if (beta <= alpha)
+	            break (* poda β *)
+	      }
+	      devolver alpha
+	   }
+	   si no {
+	      para cada hijo de T {
+	         valor = PodaAlfaBeta(hijo, jugador, profundidad - 1, alpha, beta, acc_ant, true, numNodos);
+	         if (valor < beta) {
+	            beta = valor;
+	            accion = static_cast <Environment::ActionType > (ultacc);
+	         }
+	         if (beta <= alpha)
+	            break (* poda α *)
+	      }
+		  devolver beta
+	   }
+	}
+
+
+    for(int i = 0; i < 7; i++) {
+        for(int j = 0; j < 7; j++){
+            if(estado.See_Casilla(i,j) == jugador || estado.See_Casilla(i,j) == bomba){
+                seguidas++;
+                if(seguidas == 2)
+                    puntuacion = puntuacion + 2*seguidas;
+                else if(seguidas == 3)
+                    puntuacion = puntuacion + 4*seguidas;
+                else
+                    puntuacion += seguidas;
+            }
+            else if(estado.See_Casilla(i,j) == enemigo || estado.See_Casilla(i,j) == bomba_enemigo){
+                if(seguidas == 2)
+                    puntuacion = puntuacion - 2*seguidas;
+                else if(seguidas == 3)
+                    puntuacion = puntuacion - 4*seguidas;
+                else
+                    puntuacion -= seguidas;
+                seguidas = 0;
+            }
+            else {
+                seguidas = 0;
+            }
+        }
+        seguidas = 0;
+    }
+
+    return puntuacion;

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- Pregunta 1 -->
+
+<category>
+<pattern>COMO * IA ^ </pattern>
+<template>Para aprobar la asignatura es necesario tener una calificación numérica superior o igual a 5 (sobre 10). No
+obstante, además del requisito anterior, se establece como requisito adicional para superar la asignatura que
+tanto la calificación correspondiente a la parte teórica como la correspondiente a la parte práctica sean mayores
+o iguales a 3 (sobre 10).</template>
+</category>
+
+<category>
+<pattern>COMO * INTELIGENCIA ARTIFICIAL ^ </pattern>
+<template><srai>COMO * IA ^ </srai></template>
+</category>
+
+<!-- Pregunta 2 -->
+
+<category>
+<pattern>COMO * TEORIA ^ </pattern>
+<template>Para la parte de teoría se realizará un examen final que se valorará sobre 10. Durante el curso se realizarán tres
+pruebas que conjuntamente podrían dar un máximo de 2 puntos sobre el examen final. La nota final de teoría
+sería el mínimo entre 10 y la suma de la nota del examen con la nota obtenida en las pruebas parciales.</template>
+</category>
+
+<!-- Pregunta 3 -->
+
+<category>
+<pattern>COMO * PRACTICA ^ </pattern>
+<template>Para la parte de prácticas se tendrá en cuenta la asistencia y participación a las clases (esta parte constituye el
+10% de la nota de prácticas), y adicionalmente se realizarán tres prácticas y un examen de problemas, la nota
+será la media de estas cuatro pruebas (esta parte constituye el 90% de la nota de prácticas). La parte de
+prácticas se realiza por evaluación continua y no se realizará un examen final.</template>
+</category>
+
+<!-- Pregunta 4 -->
+
+<category>
+<pattern> ^ EVALUA EN ^ JUNIO ^ </pattern>
+<template>
+   <srai>COMO * TEORIA ^ </srai>
+   <srai>COMO * PRACTICA ^ </srai>
+</template>
+</category>
+
+<!-- Pregunta 5 -->
+
+<category>
+<pattern>QUE PASA SI TENGO QUE * SEPTIEMBRE ^ </pattern>
+<template>En la convocatoria de septiembre habrá un examen escrito único (evaluado de 0 a 10) que incluirá preguntas
+tanto de tipo teórico como práctico que garanticen que el alumno ha adquirido la totalidad de las competencias
+descritas en esta misma guía docente. No habrá entrega de prácticas en esta convocatoria.</template>
+</category>
+
+<!-- Pregunta 6 -->
+
+<category>
+<pattern> ^ EXAMEN DE PRACTICAS EN ^ SEPTIEMBRE ^ </pattern>
+<template>En el examen hay preguntas sobre prácticas pero no hay un examen independiente.</template>
+</category>
+
+<!-- Pregunta 7 -->
+
+<category>
+<pattern> ^ NO PUEDO * A CLASE ^ </pattern>
+<template>De acuerdo a lo establecido en la Normativa de evaluación y de calificación de los estudiantes de la Universidad
+de Granada aprobada en Consejo de Gobierno de 20 de mayo de 2013 (NCG71/2), la evaluación será
+preferentemente continua. No obstante, el estudiante que no pueda acogerse a dicho sistema por motivos
+laborales, estado de salud, discapacidad o cualquier otra causa debidamente justificada podrá acogerse a la
+evaluación única final. Para ello deberá solicitarlo al Director del Departamento o al Coordinador del Máster en
+las dos primeras semanas de impartición de la asignatura o, excepcionalmente, en las dos primeras semanas
+tras la matriculación en la asignatura (NCG78/9: Instrucción relativa a la aplicación del artículo 8.2). La
+normativa se puede consultar en
+http://secretariageneral.ugr.es/pages/normativa/fichasugr/ncg7121 .
+Esta modalidad de evaluación se realizará en un único acto académico y consistirá en un examen escrito
+(evaluado de 0 a 10) que incluirá preguntas tanto de tipo teórico como práctico que garanticen que el alumno ha
+adquirido la totalidad de las competencias descritas en esta misma guía docente.
+El sistema de calificaciones se expresará mediante calificación numérica de acuerdo con lo establecido en el art.
+5 del R. D 1125/2003, de 5 de septiembre, por el que se establece el sistema europeo de créditos y el sistema
+de calificaciones en las titulaciones universitarias de carácter oficial y validez en el territorio nacional.</template>
+</category>
+
+<!-- Pregunta 8 -->
+
+<category>
+<pattern> ^ NOTA MINIMA ^ </pattern>
+<template>Necesitas sacar un 3 sobre 10 tanto en teoria como en practicas.</template>
+</category>
+
+<!-- Pregunta 9 -->
+
+<category>
+<pattern> ^ PRACTICAS ^ OBLIGATORIAS ^ </pattern>
+<template>Si.</template>
+</category>
+
+<!-- Pregunta 10 -->
+
+<category>
+<pattern>CUANTO * CADA PRACTICA ^ </pattern>
+<template>25%.</template>
+</category>
+
+<!-- Pregunta 11 -->
+
+<category>
+<pattern>CUANTO * LA PARTICIPACION ^ </pattern>
+<template>10%.</template>
+</category>
+
+<!-- Pregunta 12 -->
+
+<category>
+<pattern>CUANTO * CADA GUION ^ </pattern>
+<template><srai>CUANTO * CADA PRACTICA ^ </srai></template>
+</category>
+
+<!-- Pregunta 13 -->
+
+<category>
+<pattern>COMO * PUNTOS * PARTICIPACION ^ </pattern>
+<template>Participando en las actividades realizadas en el aula, mediante la resolucion de ejercicios
+en pizarra o el debate de los mismos.</template>
+</category>
+
+<!-- Pregunta 14 -->
+
+<category>
+<pattern>QUE ES LO MINIMO * APROBAR ^ </pattern>
+<template>
+	<srai> ^ NOTA MINIMA ^ </srai>
+	Aparte de lo anterior, debes tener una nota superior a 5 sumando teoria (50%) y
+	practicas (50%).
+</template>
+</category>
+
+<!-- Pregunta 15 -->
+
+<category>
+<pattern> * SON INDIVIDUALES ^ </pattern>
+<template>Si.</template>
+</category>
+
+<!-- Pregunta 16 -->
+
+<category>
+<pattern> * LOS TRABAJOS EN GRUPO ^ </pattern>
+<template>No.</template>
+</category>
+
+<!-- Pregunta 17 -->
+
+<category>
+<pattern>HAY QUE * LOS * DE LAS RELACIONES ^ </pattern>
+<template>Puede darse el caso de que si haya que entragar algunos problemas.</template>
+</category>
+
+<!-- Pregunta 18 -->
+
+<category>
+<pattern> ^ QUE * ESTUDIAR ^ </pattern>
+<template>Para aprender y desarrollar los conocimientos sobre IA.</template>
+</category>
+
+<!-- Pregunta 19 -->
+
+<category>
+<pattern>CUANTO * EL PRIMER EXAMEN DE TEORIA ^ </pattern>
+<template>0.5 sobre 2.</template>
+</category>
+
+<!-- Pregunta 20 -->
+
+<category>
+<pattern>PUEDO * UNA * MAYOR A 10 ^ </pattern>
+<template>No. La nota final de teoría sería el mínimo entre 10 y la suma de la nota del examen
+con la nota obtenida en las pruebas parciales.</template>
+</category>
+
+<!-- Pregunta 21 -->
+
+<category>
+<pattern> * RECUPERAR * O * ^ </pattern>
+<template>No existe esa posibilidad.</template>
+</category>
+
+<!-- Pregunta 22 -->
+
+<category>
+<pattern> ^ SI ME COPIO DE ^ </pattern>
+<template>En el caso de detectar prácticas copiadas, los involucrados (tanto el que se copió como el que se
+ha dejado copiar) tendrán suspensa la asignatura.</template>
+</category>
+
+<!-- Pregunta 23 -->
+
+<category>
+<pattern> ^ SI ME DEJO COPIAR DE ^ </pattern>
+<template><srai> ^ SI ME COPIO DE ^ </srai></template>
+</category>
+
+<!-- Pregunta 24 -->
+
+<category>
+<pattern> ^ SI SUSPENDO EN LA CONVOCATORIA DE JUNIO ^ </pattern>
+<template>Tendrías que presentarte a la convocatoria de Septiembre.</template>
+</category>
+
+<!-- Pregunta 25 -->
+
+<category>
+<pattern>CUANTO * LA * Y LA * </pattern>
+<template>50% cada una.</template>
+</category>
+
+<!-- Pregunta 26 -->
+
+<category>
+<pattern> ^ ES EL HORARIO DE TUTORIAS DEL PROFESOR ^ </pattern>
+<template>Martes de 08:30 a 09:30 en D40
+Martes de 11:30 a 13:30 en D40
+Miércoles de 08:30 a 09:30 en D44
+Miércoles de 11:30 a 13:30 en D40</template>
+</category>
+
+<!-- Pregunta 27 -->
+
+<category>
+<pattern> ^ ES EL CORREO ^ DEL PROFESOR ^ </pattern>
+<template>A.Gonzalez@decsai.ugr.es</template>
+</category>
+
+<!-- Pregunta 28 -->
+
+<category>
+<pattern>SE PUEDE * LA ^ PRACTICA ^ SI NO * UNA PRACTICA ^ </pattern>
+<template>Si, siempre y cuando con las notas de las demas practicas la media salga aprobada.</template>
+</category>
+
+<!-- Pregunta 29 -->
+
+<category>
+<pattern> ^ NOTA MINIMA ^ TENGO QUE * EN CADA PARTE PARA HACER MEDIA ^ </pattern>
+<template><srai> ^ NOTA MINIMA ^ </srai></template>
+</category>
+
+<!-- Pregunta 30 -->
+
+<category>
+<pattern>QUE * EN LA PRACTICA 1 SI * POR * EL NIVEL 3 Y NO LO * </pattern>
+<template>Un 5 sobre 10.</template>
+</category>
+
+<!-- Pregunta 31 -->
+
+<category>
+<pattern>PUEDO * LA PRACTICA 1 SIN HACER * NIVEL 0 ^ </pattern>
+<template>No.</template>
+</category>
+
+<!-- Pregunta 32 -->
+
+<category>
+<pattern>QUE * HACER SI NO PUEDO * A LA * DE PRACTICAS EN LA QUE * MI PRACTICA 1 ^ </pattern>
+<template>Avisar al profesor de prácticas para que le asigne a otro grupo de prácticas de la
+asignatura para esa misma semana.</template>
+</category>
+
+<!-- Pregunta 33 -->
+
+<category>
+<pattern>CUANTAS PRUEBAS TEORICAS * CURSO ^ </pattern>
+<template>3 más el examen final.</template>
+</category>
+
+<!-- Pregunta 34 -->
+
+<category>
+<pattern> * VALE LA PRIMERA PRUEBA TEORICA ^ </pattern>
+<template><srai>CUANTO * EL PRIMER EXAMEN DE TEORIA ^ </srai></template>
+</category>
+
+<!-- Pregunta 35 -->
+
+<category>
+<pattern>EN LA PARTE TEORICA ^ CUENTA LA ASISTENCIA ^ </pattern>
+<template>Si.</template>
+</category>
+
+<!-- Pregunta 36 -->
+
+<category>
+<pattern>* QUE * EL EXAMEN DE * ^ </pattern>
+<template>Resolver problemas sobre IA.</template>
+</category>
+
+<!-- Pregunta 37 -->
+
+<category>
+<pattern>QUE * SI NO QUIERO DEFENDER UNA PRACTICA ^ </pattern>
+<template>Las prácticas presentadas en tiempo y forma, pero no defendidas por el alumno, se
+considerarán como no entregadas y el alumno obtendrá la calificación de 0.</template>
+</category>
+
+<!-- Pregunta 38 -->
+
+<category>
+<pattern>QUE * HACER SI * SUPERAR EL NIVEL 3 DE LA PRÁCTICA 1 ^ </pattern>
+<template>Hacer el nivel 2, ya que en caso de fallar en el nivel 3 la nota seria menor que si se supera
+el nivel 2.</template>
+</category>
+
+<!-- Pregunta 39 -->
+
+<category>
+<pattern>CUANTAS PRACTICAS ^ TIENE LA ASIGNATURA ^ </pattern>
+<template>3.</template>
+</category>
+
+<!-- Pregunta 40 -->
+
+<category>
+<pattern>YO PROGRAMO ^ BIEN EN * PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE ^ </pattern>
+<template>No.</template>
+</category>
+
+<!-- Pregunta 41 -->
+
+<category>
+<pattern> * AIML ^ PODRIA HACER LAS PRACTICAS * OTRO LENGUAJE ^ </pattern>
+<template><srai>YO PROGRAMO ^ BIEN EN * PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE ^ </srai></template>
+</category>
+
+<category>
+<pattern> * AIML, PODRIA HACER LAS PRACTICAS * OTRO LENGUAJE ^ </pattern>
+<template><srai>YO PROGRAMO ^ BIEN EN * PODRIA HACER LAS PRACTICAS EN ESE LENGUAJE ^ </srai></template>
+</category>
+
+<!-- Pregunta 42 -->
+
+<category>
+<pattern>DONDE ESTA * DEL PROFESOR DE PRACTICAS ^ </pattern>
+<template>Despacho 40, cuarta planta.</template>
+</category>
+
+<!-- Pregunta 43 -->
+<!-- Podemos hacer que se llame a la regla 42 ya que el profesor de practicas
+para el grupo A1 es el mismo que el profesor de teoria. -->
+
+<category>
+<pattern>DONDE ESTA * DEL PROFESOR DE TEORIA ^ </pattern>
+<template><srai>DONDE ESTA * DEL PROFESOR DE PRACTICAS ^ </srai></template>
+</category>
+
+<!-- Pregunta 44 -->
+
+<category>
+<pattern>SUMO 15 PUNTOS EN LAS PRACTICAS QUE YA HE * ESO ME ASEGURA * LAS PRACTICAS ^ </pattern>
+<template>Tanto si te refieres a 15 sobre 100 o a 15 sobre 50, no.</template>
+</category>
+
+<!-- Pregunta 45 -->
+
+<category>
+<pattern>SUMO 20 PUNTOS EN LAS PRACTICAS QUE YA HE * ESO ME ASEGURA * LA ASIGNATURA ^ </pattern>
+<template>Si te refieres a 15 sobre 100 no puedes aprobar ya que no tienes la nota minima. Si te refieres
+a 15 sobre 50, no te asegura el aprobado pero si tienes posibilidad.</template>
+</category>
+
+<!-- Pregunta 46 -->
+
+<category>
+<pattern> * TARDE A LA ASIGNATURA Y NO PUDE * LA PRACTICA 1, PUEDO RECUPERAR ESA PRACTICA ^ </pattern>
+<template><srai> * RECUPERAR * O * ^ </srai></template>
+</category>
+
+<!-- Pregunta 47 -->
+
+<category>
+<pattern> * TARDE A LA ASIGNATURA Y NO PUDE * LA PRACTICA 1, TENGO POSIBILIDADES DE APROBAR LA PARTE PRACTICA ^ </pattern>
+<template><srai>SE PUEDE * LA ^ PRACTICA ^ SI NO * UNA PRACTICA ^ </srai></template>
+</category>
+
+<!-- Pregunta 48 -->
+
+<category>
+<pattern>ME * LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN * PODRIA * AGENTES CONVERSACIONALES PARA QUE VAYAN ^ A HACER LA DEFENSA DE PRACTICAS ^ </pattern>
+<template>Evidentemente no.</template>
+</category>
+
+<!-- Para poder usar la regla completa y con punto. -->
+
+<category>
+<pattern>ME * LOS AGENTES CONVERSACIONALES Y SOY UN EXPERTO EN * </pattern>
+<template></template>
+</category>
+
+<category>
+<pattern>PODRIA * AGENTES CONVERSACIONALES PARA QUE VAYAN ^ A HACER LA DEFENSA DE PRACTICAS ^ </pattern>
+<template>Evidentemente no.</template>
+</category>
+
+<!-- Pregunta 49 -->
+
+<category>
+<pattern>EN LAS * PRACTICAS HAY TAMBIEN QUE PROGRAMAR ^ </pattern>
+<template>Si.</template>
+</category>
+
+<!-- Pregunta 50 -->
+
+<category>
+<pattern>EL NIVEL 0 ES MUY * EL RESTO DE LA PRACTICA ^ </pattern>
+<template>La dificultad va aumentando segun aumenta el nivel en el que te encuentras.</template>
+</category>
+
+</aiml>

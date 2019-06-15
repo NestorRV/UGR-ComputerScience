@@ -1,0 +1,1764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- El humano piensa el personaje. El agente es el que debe formular preguntas del tipo:
+Tiene el pelo moreno? Tiene los ojos claros? Es mujer?
+El agente en función de las respuestas de si o no del humano debe ir descartando rasgos para acertar el personaje.
+El juego termina cuando el agente introduce una afirmación del tipo: El personaje es Luis
+El humano le indicará si ha acertado o no. -->
+
+<topic name="nivel3">
+
+    <category>
+    <pattern> Usuario piensa </pattern>
+    <template>
+        Tiene los ojos oscuros?
+
+        <think>
+            <!-- Lista de los nombres -->
+            <set name="names">Alejandro Alfonso Antonio Cristina Gabriela Ivan Javier Juan Laura Luis Marco Maria Paco Pepe Sofia Sonia</set>
+            <!-- Lista de los atributos a los que va a responder el usuario -->
+            <set name="pelo">unknown</set>
+            <set name="ojos">unknown</set>
+            <set name="piel">unknown</set>
+            <set name="gafas">unknown</set>
+            <set name="bigote">unknown</set>
+            <set name="barba">unknown</set>
+            <set name="genero">unknown</set>
+        </think>
+    </template>
+    </category>
+
+    <category>
+    <pattern>Si</pattern>
+    <that> TIENE LOS OJOS OSCUROS </that>
+    <template>
+        Tiene la piel oscura?
+
+        <think><set name="ojos">oscuros</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="ojos"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="oscuros">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">1</set></think>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <that> TIENE LOS OJOS OSCUROS </that>
+    <template>
+        Tiene la piel oscura?
+
+        <think><set name="ojos">claros</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="ojos"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="claros">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">2</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="fin">
+
+    <category>
+    <pattern> Ya lo tengo </pattern>
+    <template>
+        <think>
+            <set name="salida"></set>
+            <set name="primero"><srai>TOP <get name="names"/></srai></set>
+        </think>
+        <set name="salida">¿El personaje elegido es <get name="primero"/>?</set>
+    </template>
+    </category>
+
+
+    <category>
+    <pattern> Si </pattern>
+    <template>
+        ¡Oh! Has perdido... ¡Otra vez sera!
+        <think><set name="topic">reinicio</set></think>
+    </template>
+    </category>
+
+    <category>
+    <pattern> No, es * </pattern>
+    <template>
+
+        <think><set name="mentira">¡Tramposo, me has mentido! </set></think>
+
+        <!-- Guardo las caracteristicas del usuario que ha introducido el usuario -->
+        <think>
+            <set name="pelo_usuario"><map name="pelo"><star/></map></set>
+            <set name="ojos_usuario"><map name="ojos"><star/></map></set>
+            <set name="piel_usuario"><map name="piel"><star/></map></set>
+            <set name="gafas_usuario"><map name="gafas"><star/></map></set>
+            <set name="bigote_usuario"><map name="bigote"><star/></map></set>
+            <set name="barba_usuario"><map name="barba"><star/></map></set>
+            <set name="genero_usuario"><map name="genero"><star/></map></set>
+        </think>
+
+        <!-- Voy comprobando todos los atributos a los cuales el usuario le dio valor respondiendo las preguntas.
+        Si el valor es "unknown" significa que no ha respondido a la pregunta acerca de ese atributo y por lo tanto
+        no tengo que comprobar si me ha mentido en ese atributo o no.
+        Si el valor es igual al valor del artibuto del personaje que el usuario ha introducido, no me ha mentido.
+        En caso contrario, me ha mentido y lo concateno a la respuesta (mentira) que va a dar el bot -->
+        
+        <condition name="pelo">
+            <li value="unknown"></li>
+            <li><value><get name="pelo_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje tiene el pelo <get name="pelo"/> y <star/> lo tiene <get name="pelo_usuario"/>.</set></think>
+            </li>
+        </condition>
+
+        <condition name="ojos">
+            <li value="unknown"></li>
+            <li><value><get name="ojos_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje tiene los ojos <get name="ojos"/> y <star/> los tiene <get name="ojos_usuario"/>.</set></think>
+            </li>
+        </condition>
+
+        <condition name="piel">
+            <li value="unknown"></li>
+            <li><value><get name="piel_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje tiene la piel <get name="piel"/> y <star/> la tiene <get name="piel_usuario"/>.</set></think>
+            </li>
+        </condition>
+
+        <condition name="gafas">
+            <li value="unknown"></li>
+            <li><value><get name="gafas_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje <get name="gafas"/> tiene gafas y <star/> <get name="gafas_usuario"/> tiene gafas.</set></think>
+            </li>
+        </condition>
+
+        <condition name="bigote">
+            <li value="unknown"></li>
+            <li><value><get name="bigote_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje <get name="bigote"/> tiene bigote y <star/> <get name="bigote_usuario"/> tiene bigote.</set></think>
+            </li>
+        </condition>
+
+        <condition name="barba">
+            <li value="unknown"></li>
+            <li><value><get name="barba_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje <get name="bigote"/> tiene barba y <star/> <get name="barba_usuario"/> tiene barba.</set></think>
+            </li>
+        </condition>
+
+        <condition name="genero">
+            <li value="unknown"></li>
+            <li><value><get name="genero_usuario"/></value></li>
+            <li>
+                <think><set name="mentira"><get name="mentira"/> Me has dicho que el personaje es <get name="genero"/> y <star/> es <get name="genero_usuario"/>.</set></think>
+            </li>
+        </condition>
+
+        <get name="mentira"/>
+
+        <think><set name="topic">reinicio</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="1">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+        Tiene barba?
+
+        <think><set name="piel">oscura</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="piel"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="oscura">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">3</set></think>
+
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene bigote?
+
+        <think><set name="piel">clara</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="piel"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="clara">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">4</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="3">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="barba">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="barba"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene bigote?
+
+        <think><set name="barba">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="barba"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">5</set></think>
+
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="5">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="bigote">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene el pelo moreno?
+
+        <think><set name="bigote">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">6</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="6">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="pelo">moreno</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="moreno">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+
+        <think><set name="pelo">calvo</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="calvo">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="4">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="bigote">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Es pelirrojo/a?
+
+        <think><set name="bigote">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">7</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="7">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="pelo">pelirrojo</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="pelirrojo">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+
+        <think><set name="pelo">marron</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="marron">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="2">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="piel">oscura</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="piel"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="oscura">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Es hombre?
+
+        <think><set name="piel">clara</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="piel"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="clara">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">8</set></think>
+
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="8">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+        Tiene barba?
+
+        <think><set name="genero">hombre</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="genero"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="hombre">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">9</set></think>
+
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene el pelo moreno?
+
+        <think><set name="genero">mujer</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="genero"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="mujer">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">10</set></think>
+
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="9">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+        Tiene bigote?
+
+        <think><set name="barba">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="barba"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">11</set></think>
+
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene bigote?
+
+        <think><set name="barba">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="barba"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">12</set></think>
+
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="11">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="bigote">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+
+        <think><set name="barba">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="12">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="bigote">si</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="si">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Es calvo?
+
+        <think><set name="bigote">no</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="bigote"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="no">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">13</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="13">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="pelo">calvo</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="calvo">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+
+        <think><set name="pelo">rubio</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="rubio">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="10">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="pelo">moreno</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="moreno">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+        Tiene el pelo blanco?
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="blanco">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                        <li value="rubio">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">14</set></think>
+    </template>
+    </category>
+
+</topic>
+
+<!-- ======================================================================================= -->
+
+<topic name="14">
+
+    <category>
+    <pattern>Si</pattern>
+    <template>
+
+        <think><set name="pelo">blanco</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="blanco">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern>No</pattern>
+    <template>
+
+        <think><set name="pelo">rubio</set></think>
+
+        <think><set name="topic">unknown</set></think>
+
+        <think>
+            <!-- Elementos en la lista -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="contador"><map name="successor"><get name="cantidad"/></map></set>
+            <!-- Lista con los compañeros que cumplen la condicion -->
+            <set name="salida"></set>
+            <!-- Variable auxiliar para almacenar el valor de cada personaje -->
+            <set name="valor"></set>
+        </think>
+
+        <!-- Ciclo para ir recorriendo la lista -->
+        <condition name="contador">
+            <li value="1">
+            <think>
+                <set name="names"><get name="salida"/></set>
+            </think>
+            </li>
+            <li>
+                <think>
+                    <!-- Cojo el primer elemento de la lista -->
+                    <set name="primero"><srai>TOP <get name="names"/></srai></set>
+                    <!-- Elimino el primer nombre de la lista -->
+                    <set name="names"><srai>REMAIN <get name="names"/></srai></set>
+                    <!-- Decremento el contador -->
+                    <set name="contador"><map name="predecessor"><get name="contador"/></map></set>
+                    <!-- Guardo el valor del primero -->
+                    <set name="valor"><map name="pelo"><get name="primero"/></map></set>
+                    <condition name="valor">
+                        <li value="rubio">
+                            <!-- Concatenacion de los compañeros que van a la salida -->
+                            <set name="salida"><get name="salida"/> <get name="primero"/></set>
+                        </li>
+                    </condition>
+                </think>
+                <loop/>
+            </li>
+        </condition>
+
+        <think><set name="topic">fin</set></think>
+        <srai> YA LO TENGO </srai>
+    </template>
+    </category>
+
+</topic>
+
+</aiml>

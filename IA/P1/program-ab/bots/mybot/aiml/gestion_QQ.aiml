@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<topic name="unknown">
+
+   <category>
+   <pattern> ^ jugar ^ </pattern>
+   <template>
+      <think>
+          <!-- Cambiamos el topico para empezar de nuevo -->
+          <set name="topic">reinicio</set>
+      </think>
+      <srai> JUGAR DE NUEVO </srai>
+   </template>
+   </category>
+
+</topic>
+
+<topic name="reinicio">
+
+    <category>
+    <pattern> ^ </pattern>
+    <template>El juego ha terminado, no puedes hacer nada mas.</template>
+    </category>
+
+    <!-- Reglas para jugar otra partida -->
+
+    <category>
+    <pattern> Jugar de nuevo </pattern>
+    <template>
+        ¿Como quieres jugar? Elige una opcion:
+        1: Pienso yo el personaje y lo adivinas tu.
+        2: Piensas tu el personaje y lo adivino yo.
+    </template>
+    </category>
+
+    <category>
+    <pattern> 1 </pattern>
+    <template>
+        <think>
+            <!-- Cambiamos el topico para empezar de nuevo -->
+            <set name="topic">nivel1</set>
+        </think>
+        <srai> USUARIO ADIVINA </srai>
+    </template>
+    </category>
+
+    <category>
+    <pattern> 2 </pattern>
+    <template>
+        <think>
+            <!-- Cambiamos el topico para empezar de nuevo -->
+            <set name="topic">nivel3</set>
+        </think>
+        <srai> USUARIO PIENSA </srai>
+    </template>
+    </category>
+
+</topic>
+
+</aiml>

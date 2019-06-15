@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- El humano juega el papel de acertar el personaje. El agente debe responder a preguntas del tipo:
+Tiene el pelo moreno? Tiene los ojos claros? Es mujer?
+
+El juego termina cuando el humano introduce una afirmación del tipo: El personaje es Antonio
+Debe terminar indicando si ha acertado o no. -->
+
+<topic name="nivel1">
+
+    <!-- Usaremos esta regla para inicializar las variables necesarias y para preparar
+    el juego para su correcto funcionamiento -->
+
+    <category>
+    <pattern> Usuario adivina </pattern>
+    <template>
+        ¡Juguemos! ¡Hazme preguntas para adivinar en quien estoy pensando!
+
+        <!-- Inicializacion de la variables necesarias -->
+        <think>
+            <!-- Lista de los nombres -->
+            <set name="names">alejandro alfonso antonio cristina gabriela ivan javier juan laura luis marco maria paco pepe sofia sonia</set>
+            <!-- Elegimos el personaje que el usuario va a tener que adivinar -->
+            <set name="cantidad"><srai>COUNT <get name="names"/></srai></set>
+            <set name="pos"><srai>RANDOM <get name="cantidad"/></srai></set>
+            <set name="elegido"><srai>SELECTITEM <get name="pos"/> IN <get name="names"/></srai></set>
+            <!-- Guardamos los atributos del personaje elegido -->
+            <set name="barba"><map name="barba"><get name="elegido"/></map></set>
+            <set name="bigote"><map name="bigote"><get name="elegido"/></map></set>
+            <set name="gafas"><map name="gafas"><get name="elegido"/></map></set>
+            <set name="genero"><map name="genero"><get name="elegido"/></map></set>
+            <set name="ojos"><map name="ojos"><get name="elegido"/></map></set>
+            <set name="pelo"><map name="pelo"><get name="elegido"/></map></set>
+            <set name="piel"><map name="piel"><get name="elegido"/></map></set>
+        </think>
+    </template>
+    </category>
+
+    <!-- Regla para fin de juego y comprobacion de si ha acertado o no -->
+
+    <category>
+    <pattern> El personaje es * </pattern>
+    <template>
+        <think>
+            <!-- Cambiamos el topico para que no se pueda preguntar nada mas una vez introducido el personaje -->
+            <set name="topic">reinicio</set>
+        </think>
+        <!-- Veamos si el jugador ha acertado o no -->
+        <condition name="elegido">
+            <li><value><star/></value>
+                ¡Enhorabuena, has acertado!
+            </li>
+            <li>
+                Has fallado, el jugador que habia elegido era <get name="elegido"/>.
+            </li>
+        </condition>
+    </template>
+    </category>
+
+    <!-- Regla para ver si tiene barba -->
+
+    <category>
+    <pattern> ^ barba </pattern>
+    <template><get name="barba"/></template>
+    </category>
+
+    <!-- Regla para ver si tiene bigote -->
+
+    <category>
+    <pattern> ^ bigote </pattern>
+    <template><get name="bigote"/></template>
+    </category>
+
+    <!-- Regla para ver si tiene gafas -->
+
+    <category>
+    <pattern> ^ gafas </pattern>
+    <template><get name="gafas"/></template>
+    </category>
+
+    <!-- Regla para ver si es hombre o mujer -->
+
+    <category>
+    <pattern> Es * </pattern>
+    <template>
+        <condition name="genero">
+            <li><value><star/></value>
+                Si.
+            </li>
+            <li> No. </li>
+        </condition>
+    </template>
+    </category>
+
+    <!-- Regla para ver si se ha acertado el color de los ojos -->
+
+    <category>
+    <pattern> Tiene los ojos * </pattern>
+    <template>
+        <condition name="ojos">
+            <li><value><star/></value>
+                Si.
+            </li>
+            <li> No. </li>
+        </condition>
+    </template>
+    </category>
+
+    <!-- Regla para ver si se ha acertado el color del pelo -->
+
+    <category>
+    <pattern> Tiene el pelo * </pattern>
+    <template>
+        <condition name="pelo">
+            <li><value><star/></value>
+                Si.
+            </li>
+            <li> No. </li>
+        </condition>
+    </template>
+    </category>
+
+    <!-- Regla para ver si se ha acertado el color de la piel -->
+
+    <category>
+    <pattern> Tiene la piel * </pattern>
+    <template>
+        <condition name="piel">
+            <li><value><star/></value>
+                Si.
+            </li>
+            <li> No. </li>
+        </condition>
+    </template>
+    </category>
+
+</topic>
+
+</aiml>

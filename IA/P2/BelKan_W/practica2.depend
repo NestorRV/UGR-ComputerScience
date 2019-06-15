@@ -1,0 +1,2106 @@
+# depslib dependency file v1.0
+1459440710 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+
+1459321970 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+
+1460974014 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\conexion.h
+	<winsock2.h>
+
+1459208464 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460974510 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460719586 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\gl.h
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\gl\openglut_ext.h
+
+1460716446 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460712720 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460711806 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349172506 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386836428 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460974816 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460137066 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1460972024 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460714512 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui.cpp
+	"glui_internal_control.h"
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_bitmap_img_data.cpp
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459206570 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459206570 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\include\viewmodel.h
+	"algebra3.h"
+
+1460714504 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1459206536 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\main.cpp
+	"GUI.h"
+
+1460711832 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460711822 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\retrato.cpp
+	"retrato.hpp"
+
+1460712922 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386836424 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_readwrite.hpp
+
+1460978414 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386836428 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460976115 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jconfig.h
+
+1460977586 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460977660 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jmorecfg.h
+
+1460977773 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jerror.h
+
+1460977801 source:c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387706918 c:\documents and settings\a\mis documentos\google drive\ia 2015-2016 carpeta compartida_\practicas\practica2\software\windows\practica2_v0.4\jpeg_reader\jpg_memsrc.hpp
+
+1459444310 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+
+1459325570 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+
+1460977616 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\conexion.h
+	<winsock2.h>
+
+1459212064 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460978112 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460723186 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\gl.h
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\gl\openglut_ext.h
+
+1460720046 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460716320 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460715406 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349176106 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386836428 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460978418 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460140666 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1460975624 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460718112 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui.cpp
+	"glui_internal_control.h"
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_bitmap_img_data.cpp
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459210170 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459210170 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\include\viewmodel.h
+	"algebra3.h"
+
+1459210136 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\main.cpp
+	"GUI.h"
+
+1460716522 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386836424 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_readwrite.hpp
+
+1460982016 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386836428 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460979716 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jconfig.h
+
+1460981188 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460981262 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jmorecfg.h
+
+1460981374 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jerror.h
+
+1460981402 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387706918 c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\jpeg_reader\jpg_memsrc.hpp
+
+1460718104 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1460715432 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460715422 source:c:\documents and settings\fgr\mis documentos\descargas\practica2_v0.4\retrato.cpp
+	"retrato.hpp"
+
+1461140874 source:c:\users\nestor\desktop\practica2_v0.4\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+
+1461147907 c:\users\nestor\desktop\practica2_v0.4\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+
+1460981216 c:\users\nestor\desktop\practica2_v0.4\conexion.h
+	<winsock2.h>
+
+1459215664 c:\users\nestor\desktop\practica2_v0.4\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460981712 source:c:\users\nestor\desktop\practica2_v0.4\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460726786 source:c:\users\nestor\desktop\practica2_v0.4\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\gl.h
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\gl\openglut_ext.h
+
+1460723646 c:\users\nestor\desktop\practica2_v0.4\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460719920 c:\users\nestor\desktop\practica2_v0.4\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460719006 c:\users\nestor\desktop\practica2_v0.4\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349179706 c:\users\nestor\desktop\practica2_v0.4\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386840028 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460982018 source:c:\users\nestor\desktop\practica2_v0.4\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460144266 c:\users\nestor\desktop\practica2_v0.4\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1460979224 source:c:\users\nestor\desktop\practica2_v0.4\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460721712 c:\users\nestor\desktop\practica2_v0.4\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui.cpp
+	"glui_internal_control.h"
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_bitmap_img_data.cpp
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\practica2_v0.4\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\practica2_v0.4\include\viewmodel.h
+	"algebra3.h"
+
+1460720122 source:c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386840024 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_readwrite.hpp
+
+1460985616 source:c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386840028 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460983316 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jconfig.h
+
+1460984788 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460984862 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jmorecfg.h
+
+1460984974 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jerror.h
+
+1460985002 source:c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387710518 c:\users\nestor\desktop\practica2_v0.4\jpeg_reader\jpg_memsrc.hpp
+
+1460721704 source:c:\users\nestor\desktop\practica2_v0.4\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1459213736 source:c:\users\nestor\desktop\practica2_v0.4\main.cpp
+	"GUI.h"
+
+1460719032 source:c:\users\nestor\desktop\practica2_v0.4\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460719022 source:c:\users\nestor\desktop\practica2_v0.4\retrato.cpp
+	"retrato.hpp"
+
+1460981712 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460981216 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\conexion.h
+	<winsock2.h>
+
+1460726786 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\gl.h
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\gl\openglut_ext.h
+
+1460723646 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460719920 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460719006 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349179706 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386840028 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460982018 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460144266 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1462792293 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+	<time.h>
+
+1459215664 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460979224 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460721712 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui.cpp
+	"glui_internal_control.h"
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_bitmap_img_data.cpp
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\include\viewmodel.h
+	"algebra3.h"
+
+1460720122 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386840024 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_readwrite.hpp
+
+1460985616 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386840028 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460983316 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jconfig.h
+
+1460984788 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460984862 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jmorecfg.h
+
+1460984974 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jerror.h
+
+1460985002 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387710518 c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\jpeg_reader\jpg_memsrc.hpp
+
+1460721704 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1459213736 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\main.cpp
+	"GUI.h"
+
+1460719032 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460719022 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\retrato.cpp
+	"retrato.hpp"
+
+1462799319 source:c:\users\nestor\dropbox\2\2c\ia\practicas\p2\belkan_w\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+	<sstream>
+	<fstream>
+
+1461745242 source:c:\users\nestor\desktop\belkan_w\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+	<sstream>
+
+1461745115 c:\users\nestor\desktop\belkan_w\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+
+1460981216 c:\users\nestor\desktop\belkan_w\conexion.h
+	<winsock2.h>
+
+1459215664 c:\users\nestor\desktop\belkan_w\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460981712 source:c:\users\nestor\desktop\belkan_w\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460726786 source:c:\users\nestor\desktop\belkan_w\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\gl.h
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\gl\openglut_ext.h
+
+1460723646 c:\users\nestor\desktop\belkan_w\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460719920 c:\users\nestor\desktop\belkan_w\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460719006 c:\users\nestor\desktop\belkan_w\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349179706 c:\users\nestor\desktop\belkan_w\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386840028 c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460982018 source:c:\users\nestor\desktop\belkan_w\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460144266 c:\users\nestor\desktop\belkan_w\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1460979224 source:c:\users\nestor\desktop\belkan_w\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460721712 c:\users\nestor\desktop\belkan_w\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui.cpp
+	"glui_internal_control.h"
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_bitmap_img_data.cpp
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\belkan_w\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\belkan_w\include\viewmodel.h
+	"algebra3.h"
+
+1460720122 source:c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386840024 c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_readwrite.hpp
+
+1460985616 source:c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386840028 c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460983316 c:\users\nestor\desktop\belkan_w\jpeg_reader\jconfig.h
+
+1460984788 c:\users\nestor\desktop\belkan_w\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460984862 c:\users\nestor\desktop\belkan_w\jpeg_reader\jmorecfg.h
+
+1460984974 c:\users\nestor\desktop\belkan_w\jpeg_reader\jerror.h
+
+1460985002 source:c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387710518 c:\users\nestor\desktop\belkan_w\jpeg_reader\jpg_memsrc.hpp
+
+1460721704 source:c:\users\nestor\desktop\belkan_w\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1459213736 source:c:\users\nestor\desktop\belkan_w\main.cpp
+	"GUI.h"
+
+1460719032 source:c:\users\nestor\desktop\belkan_w\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460719022 source:c:\users\nestor\desktop\belkan_w\retrato.cpp
+	"retrato.hpp"
+
+1460981712 source:c:\users\nestor\desktop\p2\belkan_w\conexion.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<winsock2.h>
+	"conexion.h"
+
+1460981216 c:\users\nestor\desktop\p2\belkan_w\conexion.h
+	<winsock2.h>
+
+1460726786 source:c:\users\nestor\desktop\p2\belkan_w\dibujosgl.cpp
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	"dibujosGL.h"
+	"retrato.hpp"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\glui.h
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	"openglut.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\openglut.h
+	"openglut_std.h"
+	"openglut_ext.h"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\openglut_std.h
+	<windows.h>
+	"gl.h"
+	"glu.h"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\gl.h
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\glu.h
+	<stddef.h>
+	"gl.h"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\gl\openglut_ext.h
+
+1460723646 c:\users\nestor\desktop\p2\belkan_w\dibujosgl.h
+	"include/GL/glui.h"
+	<cstdlib>
+	<iostream>
+	<string.h>
+
+1460719920 c:\users\nestor\desktop\p2\belkan_w\retrato.hpp
+	"objeto3d.h"
+	"jpeg_reader/jpg_imagen.hpp"
+	<string.h>
+
+1460719006 c:\users\nestor\desktop\p2\belkan_w\objeto3d.h
+	"vertex.h"
+	<vector>
+	<GL/gl.h>
+	<string.h>
+
+1349179706 c:\users\nestor\desktop\p2\belkan_w\vertex.h
+	<stdio.h>
+	<assert.h>
+	<math.h>
+	<iostream>
+
+1386840028 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_imagen.hpp
+	<string>
+
+1460982018 source:c:\users\nestor\desktop\p2\belkan_w\environment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"GUI.h"
+	"stdlib.h"
+	"conexion.h"
+	"environment.h"
+	"include/GL/glui.h"
+
+1460144266 c:\users\nestor\desktop\p2\belkan_w\gui.h
+	<fstream>
+	"belkan.h"
+	"include/GL/glui.h"
+
+1461759197 c:\users\nestor\desktop\p2\belkan_w\belkan.h
+	<string>
+	<iostream>
+	<cstdlib>
+	"conexion.h"
+
+1459215664 c:\users\nestor\desktop\p2\belkan_w\environment.h
+	<fstream>
+	<string>
+	<map>
+	<cstring>
+	"conexion.h"
+
+1460979224 source:c:\users\nestor\desktop\p2\belkan_w\gui.cpp
+	<fstream>
+	<sstream>
+	<iomanip>
+	<iostream>
+	<string>
+	<cmath>
+	"GUI.h"
+	<cstdlib>
+	"belkan.h"
+	"conexion.h"
+	"dibujosGL.h"
+	"environment.h"
+	"luz.hpp"
+
+1460721712 c:\users\nestor\desktop\p2\belkan_w\luz.hpp
+	"objeto3d.h"
+	<GL/gl.h>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\algebra3.cpp
+	"algebra3.h"
+	"glui_internal.h"
+	<cmath>
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\algebra3.h
+	<cmath>
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\glui_internal.h
+	<cstdio>
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\arcball.cpp
+	"arcball.h"
+	<cstdio>
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\arcball.h
+	"glui_internal.h"
+	"algebra3.h"
+	"quaternion.h"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\quaternion.h
+	"algebra3.h"
+	<cstdio>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui.cpp
+	"glui_internal_control.h"
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\glui_internal_control.h
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_add_controls.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_bitmap_img_data.cpp
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_bitmaps.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_button.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_checkbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_column.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_commandline.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_control.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_edittext.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_filebrowser.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	<sys/types.h>
+	<windows.h>
+	<dirent.h>
+	<unistd.h>
+	<sys/stat.h>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_list.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<sys/timeb.h>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_listbox.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_mouse_iaction.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_node.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_panel.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_radio.cpp
+	"glui_internal_control.h"
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_rollout.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_rotation.cpp
+	"GL/glui.h"
+	"arcball.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_scrollbar.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_separator.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_spinner.cpp
+	"glui_internal_control.h"
+	<cmath>
+	<cassert>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_statictext.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_string.cpp
+	"GL/glui.h"
+	<stdarg.h>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_textbox.cpp
+	"glui_internal_control.h"
+	<cmath>
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_translation.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+	"algebra3.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_tree.cpp
+	"glui_internal_control.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_treepanel.cpp
+	"GL/glui.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\glui_window.cpp
+	"GL/glui.h"
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\quaternion.cpp
+	"quaternion.h"
+	<cmath>
+	"glui_internal.h"
+
+1459213770 source:c:\users\nestor\desktop\p2\belkan_w\include\viewmodel.cpp
+	"viewmodel.h"
+	"GL/glui.h"
+	<cstdio>
+	<cstdlib>
+
+1459213770 c:\users\nestor\desktop\p2\belkan_w\include\viewmodel.h
+	"algebra3.h"
+
+1460720122 source:c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_imagen.cpp
+	<stdlib.h>
+	<string>
+	<iostream>
+	"jpg_imagen.hpp"
+	"jpg_readwrite.hpp"
+
+1386840024 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_readwrite.hpp
+
+1460985616 source:c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_memsrc.cpp
+	"jpg_jinclude.h"
+	"jpeglib.h"
+	"jerror.h"
+
+1386840028 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_jinclude.h
+	"jconfig.h"
+	<stddef.h>
+	<stdlib.h>
+	<sys/types.h>
+	<stdio.h>
+	<strings.h>
+	<string.h>
+
+1460983316 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jconfig.h
+
+1460984788 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpeglib.h
+	"jconfig.h"
+	"jmorecfg.h"
+	"jpegint.h"
+	"jerror.h"
+
+1460984862 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jmorecfg.h
+
+1460984974 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jerror.h
+
+1460985002 source:c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_readwrite.cpp
+	"jpg_readwrite.hpp"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"jpeglib.h"
+	<iostream>
+	<fstream>
+	"jpg_memsrc.hpp"
+	<setjmp.h>
+
+1387710518 c:\users\nestor\desktop\p2\belkan_w\jpeg_reader\jpg_memsrc.hpp
+
+1460721704 source:c:\users\nestor\desktop\p2\belkan_w\luz.cpp
+	"luz.hpp"
+	"vertex.h"
+	<cmath>
+
+1459213736 source:c:\users\nestor\desktop\p2\belkan_w\main.cpp
+	"GUI.h"
+
+1460719032 source:c:\users\nestor\desktop\p2\belkan_w\objeto3d.cc
+	"objeto3d.h"
+	<iostream>
+
+1460719022 source:c:\users\nestor\desktop\p2\belkan_w\retrato.cpp
+	"retrato.hpp"
+
+1461759079 source:c:\users\nestor\desktop\p2\belkan_w\belkan.cpp
+	"belkan.h"
+	"conexion.h"
+	"environment.h"
+	<iostream>
+	<cstdlib>
+	<vector>
+	<utility>
+	<cstring>
+	<sstream>
+
